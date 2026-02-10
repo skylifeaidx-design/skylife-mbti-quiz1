@@ -308,7 +308,7 @@ body {
 
 .intro-emoji {
     font-size: 48px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     display: block;
     animation: bounce 2s infinite;
 }
@@ -812,13 +812,15 @@ body {
 /* Skylife ID Header Theme */
 .skylife-id-header {
     background: #262e33;
-    padding: 20px;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: 24px;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: -40px -24px 32px -24px;
     border-bottom: 4px solid var(--primary);
+    position: relative;
+    z-index: 2;
 }
 
 .id-logo {
@@ -1384,6 +1386,17 @@ body {
     font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.4;
+}
+
+/* Caution Style for Team Item */
+.not-recommended .team-item {
+    border-left: 4px solid var(--accent);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 167, 38, 0.05) 100%);
+}
+
+.not-recommended .team-item-badge {
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--accent);
 }
 
 /* Capture Area Styling */

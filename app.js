@@ -343,9 +343,19 @@ class MBTIQuizApp {
             `).join('');
         }
 
-        // 비추천 팀
-        document.getElementById('not-team-name').textContent = typeInfo.notRecommendedTeam;
-        document.getElementById('not-team-reason').textContent = typeInfo.notTeamReason;
+        // 비추천 팀 렌더링 (확장된 구조)
+        const notRecommendedContainer = document.getElementById('not-recommended-teams-list');
+        if (notRecommendedContainer && typeInfo.notRecommendedTeam) {
+            notRecommendedContainer.innerHTML = `
+                <div class="team-item">
+                    <div class="team-item-header">
+                        <span class="team-item-name">${typeInfo.notRecommendedTeam}</span>
+                        <span class="team-item-badge">주의</span>
+                    </div>
+                    <p class="team-item-reason">${typeInfo.notTeamReason}</p>
+                </div>
+            `;
+        }
 
         // 동료 위로 메시지
         document.getElementById('colleague-message').textContent = typeInfo.colleagueMessage;
