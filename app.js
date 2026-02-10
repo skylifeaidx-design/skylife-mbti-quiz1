@@ -12,6 +12,8 @@ class MBTIQuizApp {
 
         this.currentQuestion = 0;
         this.answers = [];
+        this.activeQuestions = []; // 이번 회차에 사용할 질문들
+        this.expectedMbti = '';    // 유저가 선택한 예상 MBTI
 
         // DOM 요소
         this.screens = {
@@ -71,11 +73,27 @@ class MBTIQuizApp {
     }
 
     startQuiz() {
+        // 예상 MBTI 획득
+        const select = document.getElementById('expected-mbti-select');
+        this.expectedMbti = select ? select.value : '';
+
+        // 질문 랜덤화 (20개 중 10개 선택)
+        this.activeQuestions = this.shuffleArray([...quizQuestions]).slice(0, 10);
+
         this.currentQuestion = 0;
         this.answers = [];
         this.resetScores();
         this.showScreen('quiz');
         this.displayQuestion();
+    }
+
+    // 배열 셔플 (Fisher-Yates)
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 
     resetScores() {
@@ -88,9 +106,9 @@ class MBTIQuizApp {
     }
 
     displayQuestion() {
-        const question = quizQuestions[this.currentQuestion];
+        const question = this.activeQuestions[this.currentQuestion];
         const questionNum = this.currentQuestion + 1;
-        const totalQuestions = quizQuestions.length;
+        const totalQuestions = this.activeQuestions.length;
 
         // 진행 상태 업데이트
         document.getElementById('question-number').textContent = `${questionNum} / ${totalQuestions}`;
@@ -105,8 +123,9 @@ class MBTIQuizApp {
         }
 
         // 질문 표시
-        const emojis = ['💼', '🗣️', '💡', '📊', '🤝', '⚖️', '⏰', '✈️', '🎉', '🌙'];
-        document.getElementById('question-emoji').textContent = emojis[this.currentQuestion];
+        const emojis = ['💼', '🗣️', '💡', '📊', '🤝', '⚖️', '⏰', '✈️', '🎉', '🌙', '📅', '💬', '🚀', '🔥', '🛡️', '🎯', '📢', '🔍', '⚙️', '🌟'];
+        const currentEmoji = emojis[this.activeQuestions[this.currentQuestion].id - 1] || '💼';
+        document.getElementById('question-emoji').textContent = currentEmoji;
         document.getElementById('question-text').textContent = question.question;
 
         // 선택지 생성
@@ -149,7 +168,7 @@ class MBTIQuizApp {
 
         this.currentQuestion++;
 
-        if (this.currentQuestion < quizQuestions.length) {
+        if (this.currentQuestion < this.activeQuestions.length) {
             // 다음 질문으로
             this.displayQuestion();
         } else {
@@ -187,11 +206,11 @@ class MBTIQuizApp {
         const tipEl = document.getElementById('analyzing-tip');
 
         const tips = [
-            '업무 스타일을 분석 중...',
-            '의사소통 패턴을 확인 중...',
-            '팀워크 성향을 파악 중...',
-            '찐친 매칭을 계산 중...',
-            '최적의 팀을 추천 준비 중...'
+            '📡 30.2°E 무궁화 위성 신호 최적화 중...',
+            '📺 Skylife UI/UX 업무 패턴 분석 중...',
+            '🚀 셋톱박스 지능형 로그 기반 성향 파악...',
+            '🔍 가입자 경험(CX) 데이터 기반 찐친 매칭...',
+            '✨ 스카라이프 최고의 동료 케미 계산 완료!'
         ];
 
         const circumference = 2 * Math.PI * 90; // 565.48
@@ -234,6 +253,32 @@ class MBTIQuizApp {
         return mbti;
     }
 
+    getComparisonFeedback(expected, actual) {
+        if (!expected) return { score: 0, message: "사전 선택이 없어 분석을 시작합니다! 🚀" };
+
+        let matchCount = 0;
+        for (let i = 0; i < 4; i++) {
+            if (expected[i] === actual[i]) matchCount++;
+        }
+
+        const score = (matchCount / 4) * 100;
+        let message = "";
+
+        if (score === 100) {
+            message = "자기이해 마스터! 스카이라이프에서의 본인 모습을 완벽히 알고 계시네요. 🎯";
+        } else if (score >= 75) {
+            message = "스스로를 아주 잘 알고 계시군요! 업무 스타일이 매우 뚜렷합니다. ✨";
+        } else if (score >= 50) {
+            message = "본인도 몰랐던 의외의 모습이 발견되었어요! 새로운 발견입니다. 💡";
+        } else if (score >= 25) {
+            message = "생각보다 유연한 업무 스타일을 가지고 계시네요! 반전 매력의 소유자입니다. 🌈";
+        } else {
+            message = "완전히 새로운 발견! 이 퀴즈가 당신의 숨은 잠재력을 찾아냈을지도 몰라요. 💫";
+        }
+
+        return { score, message };
+    }
+
     showResult(forcedMbti = null) {
         const mbti = forcedMbti || this.calculateMBTI();
         const typeInfo = mbtiTypes[mbti];
@@ -251,6 +296,25 @@ class MBTIQuizApp {
         document.getElementById('result-title').textContent = typeInfo.name;
         document.getElementById('result-description').textContent = typeInfo.description;
 
+        // MBTI 비교 렌더링
+        const expectedDisplay = document.getElementById('expected-mbti-display');
+        const actualDisplay = document.getElementById('actual-mbti-display');
+
+        if (expectedDisplay) expectedDisplay.textContent = this.expectedMbti || '미선택';
+        if (actualDisplay) actualDisplay.textContent = mbti;
+
+        // 자기이해 지수 및 메시지 업데이트
+        const feedback = this.getComparisonFeedback(this.expectedMbti, mbti);
+        const matchScoreEl = document.getElementById('match-score');
+        const matchMessageEl = document.getElementById('match-message');
+        const matchSection = document.getElementById('self-match-section');
+
+        if (matchScoreEl) matchScoreEl.textContent = `${feedback.score}%`;
+        if (matchMessageEl) matchMessageEl.textContent = feedback.message;
+        if (!this.expectedMbti && matchSection) {
+            matchSection.style.display = 'none'; // 예상 MBTI 미선택 시 섹션 숨김
+        }
+
         // 대표 인물 렌더링
         this.renderRepresentatives(typeInfo.representatives);
 
@@ -265,9 +329,19 @@ class MBTIQuizApp {
         // 호환성 차트
         this.renderCompatibility(mbti, compatibility, typeInfo);
 
-        // 추천 팀
-        document.getElementById('team-name').textContent = typeInfo.recommendedTeam;
-        document.getElementById('team-reason').textContent = typeInfo.teamReason;
+        // 추천 팀 목록 렌더링 (확장된 구조)
+        const teamsContainer = document.getElementById('recommended-teams-list');
+        if (teamsContainer && typeInfo.recommendedTeams) {
+            teamsContainer.innerHTML = typeInfo.recommendedTeams.map((team, idx) => `
+                <div class="team-item">
+                    <div class="team-item-header">
+                        <span class="team-item-name">${team.name}</span>
+                        <span class="team-item-badge">추천 ${idx + 1}</span>
+                    </div>
+                    <p class="team-item-reason">${team.reason}</p>
+                </div>
+            `).join('');
+        }
 
         // 비추천 팀
         document.getElementById('not-team-name').textContent = typeInfo.notRecommendedTeam;

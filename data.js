@@ -1,14 +1,14 @@
 // 스카이라이프 MBTI 찐친 퀴즈 데이터
 
-// 10개의 퀴즈 질문 (직장생활 에피소드 기반)
+// 20개의 퀴즈 질문 (다양한 직장생활 에피소드 기반)
 const quizQuestions = [
     {
         id: 1,
         question: "새로 입사한 동료가 점심시간에 같이 먹자고 했어요. 당신의 반응은?",
         dimension: "EI",
         options: [
-            { text: "좋아요! 다른 팀 사람들도 불러볼까요?", value: "E", emoji: "🎉" },
-            { text: "네, 좋아요. 조용한 곳에서 둘이 먹으면 좋겠어요", value: "I", emoji: "☕" }
+            { text: "좋아요! 다른 팀 사람들도 불러서 시끌벅적하게 먹을까요?", value: "E", emoji: "🎉" },
+            { text: "네, 좋아요. 조용한 곳에서 오붓하게 대화하며 먹고 싶어요", value: "I", emoji: "☕" }
         ]
     },
     {
@@ -16,83 +16,174 @@ const quizQuestions = [
         question: "팀 회의에서 새로운 아이디어를 공유해야 해요. 어떻게 하시겠어요?",
         dimension: "EI",
         options: [
-            { text: "바로 손들고 발표해요! 토론이 활발해지면 더 신나요", value: "E", emoji: "🙋" },
-            { text: "미리 정리해서 메일로 보내거나, 발언권이 오면 말해요", value: "I", emoji: "📝" }
+            { text: "바로 손들고 발표해요! 토론이 활발해지는 분위기를 즐겨요", value: "E", emoji: "🙋" },
+            { text: "미리 생각을 정리해서 메일로 공유하거나, 차례가 오면 말해요", value: "I", emoji: "📝" }
         ]
     },
     {
         id: 3,
-        question: "새 프로젝트를 시작할 때, 당신의 접근 방식은?",
+        question: "새로운 프로젝트를 기획할 때, 첫 단계에서 당신은?",
         dimension: "SN",
         options: [
-            { text: "기존에 성공했던 방법을 기반으로 계획을 세워요", value: "S", emoji: "📊" },
-            { text: "완전히 새로운 방식으로 시도해보고 싶어요", value: "N", emoji: "💡" }
+            { text: "기존의 성공 사례와 구체적인 수치 데이터를 먼저 분석해요", value: "S", emoji: "📊" },
+            { text: "비슷한 사례는 없지만, 새로운 미래 트렌드와 가능성을 상상해요", value: "N", emoji: "💡" }
         ]
     },
     {
         id: 4,
-        question: "업무 보고서를 작성할 때 당신의 스타일은?",
+        question: "업무 보고서를 작성할 때 당신이 더 공들이는 부분은?",
         dimension: "SN",
         options: [
-            { text: "구체적인 수치와 사실에 기반해서 작성해요", value: "S", emoji: "📈" },
-            { text: "큰 그림과 미래 가능성을 중심으로 작성해요", value: "N", emoji: "🔮" }
+            { text: "실행 가능한 구체적인 액션 플랜과 꼼꼼한 세부 수치", value: "S", emoji: "📈" },
+            { text: "프로젝트의 근본적인 목적과 앞으로 가져올 파급 효과", value: "N", emoji: "🔮" }
         ]
     },
     {
         id: 5,
-        question: "동료가 업무에서 실수를 했어요. 어떻게 대처하시겠어요?",
+        question: "친한 동료가 큰 실수를 해서 침울해하고 있어요. 당신의 첫 마디는?",
         dimension: "TF",
         options: [
-            { text: "원인을 분석하고 해결책을 함께 찾아봐요", value: "T", emoji: "🔍" },
-            { text: "먼저 위로하고, 기분이 괜찮은지 확인해요", value: "F", emoji: "💝" }
+            { text: "일단 해결부터 해야 하니까 원인을 같이 분석하고 도와줄게요", value: "T", emoji: "🔍" },
+            { text: "많이 당황했죠? 그럴 수도 있어요. 맛있는 거 먹으러 가요", value: "F", emoji: "💝" }
         ]
     },
     {
         id: 6,
-        question: "팀 내에서 갈등이 생겼어요. 당신의 중재 방식은?",
+        question: "중요한 의사결정을 내려야 하는 상황, 어떤 기준을 따르나요?",
         dimension: "TF",
         options: [
-            { text: "객관적인 입장에서 논리적으로 해결점을 찾아요", value: "T", emoji: "⚖️" },
-            { text: "각자의 감정을 이해하고 조화로운 방향을 찾아요", value: "F", emoji: "🤝" }
+            { text: "객관적인 원칙과 논리적인 타당성이 가장 중요해요", value: "T", emoji: "⚖️" },
+            { text: "팀원들의 사기와 주변 사람들에게 미칠 영향이 중요해요", value: "F", emoji: "🤝" }
         ]
     },
     {
         id: 7,
-        question: "중요한 마감이 일주일 앞으로 다가왔어요. 당신의 업무 스타일은?",
+        question: "일주일 뒤가 큰 행사에요. 당신의 현재 상태는?",
         dimension: "JP",
         options: [
-            { text: "이미 대부분 완료했어요. 마무리만 남았죠", value: "J", emoji: "✅" },
-            { text: "아직 시간 있으니까, 마감 전에 집중해서 끝낼 거예요", value: "P", emoji: "⏰" }
+            { text: "이미 체크리스트를 기반으로 모든 준비가 착착 끝난 상태예요", value: "J", emoji: "✅" },
+            { text: "큰 가닥은 잡았고, 남은 기간 집중해서 디테일을 채울 계획이에요", value: "P", emoji: "⏰" }
         ]
     },
     {
         id: 8,
-        question: "내일 출장이에요. 오늘 밤 당신은?",
+        question: "출장을 가기 전날 밤, 짐을 싸는 당신의 스타일은?",
         dimension: "JP",
         options: [
-            { text: "체크리스트 보면서 짐 싸고, 일정표 다시 확인해요", value: "J", emoji: "📋" },
-            { text: "대충 필요한 것만 챙기고, 나머지는 현지에서 해결해요", value: "P", emoji: "🎒" }
+            { text: "일정별 옷차림까지 다 정해서 꼼꼼하게 리스트대로 준비해요", value: "J", emoji: "📋" },
+            { text: "가장 필요한 것만 일단 넣고, 나머지는 가서 상황 봐서 챙겨요", value: "P", emoji: "🎒" }
         ]
     },
     {
         id: 9,
-        question: "팀 워크숍에서 자유시간이 생겼어요. 어떻게 보내시겠어요?",
+        question: "전사 워크숍 참여 시간 중, 당신이 선호하는 보너스 타임은?",
         dimension: "EI",
         options: [
-            { text: "다른 팀 사람들과 어울려서 네트워킹 해요", value: "E", emoji: "🗣️" },
-            { text: "조용히 산책하거나 혼자만의 시간을 가져요", value: "I", emoji: "🌿" }
+            { text: "처음 본 타 팀 사람들과 친해질 수 있는 네트워킹 시간", value: "E", emoji: "🗣️" },
+            { text: "자유롭게 휴식을 취하거나 조용히 풍경을 즐기는 개인 시간", value: "I", emoji: "🌿" }
         ]
     },
     {
         id: 10,
-        question: "갑자기 야근 요청이 왔어요. 당신의 반응은?",
+        question: "퇴근 30분 전, 갑작스러운 협업 요청이 왔어요. 당신은?",
         dimension: "JP",
         options: [
-            { text: "오늘 계획이 있어서 곤란한데... 미리 말씀해주셨으면 좋았을 텐데", value: "J", emoji: "📅" },
-            { text: "네, 알겠습니다! 상황에 맞춰서 유연하게 대응할게요", value: "P", emoji: "🔄" }
+            { text: "오늘 계획이 어그러져서 불편하지만, 일단 일정 조율을 해봐요", value: "J", emoji: "📅" },
+            { text: "그럴 수도 있죠! 유연하게 일정을 조정해서 바로 대응해요", value: "P", emoji: "🔄" }
+        ]
+    },
+    {
+        id: 11,
+        question: "새로운 사내 복지 아이디어를 낼 때, 당신의 스타일은?",
+        dimension: "SN",
+        options: [
+            { text: "현실적으로 당장 실현 가능하고 직원들이 바로 혜택을 볼 수 있는 것", value: "S", emoji: "🛠️" },
+            { text: "조금 파격적이어도 5년 뒤 10년 뒤의 기업 문화를 바꿀 만한 것", value: "N", emoji: "🚀" }
+        ]
+    },
+    {
+        id: 12,
+        question: "동료의 상을 당했을 때 조문을 가야 해요. 당신의 마음가짐은?",
+        dimension: "TF",
+        options: [
+            { text: "가서 슬픔을 나누고 위로해주는 진정성이 가장 중요해요", value: "F", emoji: "🖤" },
+            { text: "예의를 갖추고 필요한 도움을 주는 실무적인 배려가 중요해요", value: "T", emoji: "👔" }
+        ]
+    },
+    {
+        id: 13,
+        question: "팀 회식 자리를 정해야 한다면 어디가 좋을까요?",
+        dimension: "EI",
+        options: [
+            { text: "최신 유행하고 활기찬 핫플레이스!", value: "E", emoji: "🕺" },
+            { text: "조용히 대화에 집중할 수 있는 아늑한 레스토랑", value: "I", emoji: "🕯️" }
+        ]
+    },
+    {
+        id: 14,
+        question: "업무 메뉴얼이 새로 생겼어요. 당신은 어떻게 하시겠어요?",
+        dimension: "SN",
+        options: [
+            { text: "하나하나 꼼꼼히 정독하고 그대로 따라가려고 노력해요", value: "S", emoji: "📖" },
+            { text: "큰 가닥만 파악한 뒤 제 스타일대로 응용해서 활용해요", value: "N", emoji: "🎨" }
+        ]
+    },
+    {
+        id: 15,
+        question: "후배가 제안한 아이디어가 말도 안 된다고 생각될 때?",
+        dimension: "TF",
+        options: [
+            { text: "비현실적인 이유를 논리적으로 설명하고 다시 생각해보라고 해요", value: "T", emoji: "🙅" },
+            { text: "신선한 발상이라고 칭찬해주고 다른 방향으로 부드럽게 유도해요", value: "F", emoji: "🙏" }
+        ]
+    },
+    {
+        id: 16,
+        question: "업무 공간을 정리하는 당신의 습관은?",
+        dimension: "JP",
+        options: [
+            { text: "늘 물건이 제자리에 있어야 마음이 편하고 업무 효율이 올라가요", value: "J", emoji: "🏗️" },
+            { text: "좀 어질러져 있어도 제가 어디에 뒀는지만 알면 상관없어요", value: "P", emoji: "🌀" }
+        ]
+    },
+    {
+        id: 17,
+        question: "모르는 번호로 전화가 왔어요. 당신은 어떻게 하나요?",
+        dimension: "EI",
+        options: [
+            { text: "누군지 궁금해서 바로 받아요", value: "E", emoji: "📞" },
+            { text: "일단 안 받고, 나중에 문자를 보내거나 번호를 검색해 봐요", value: "I", emoji: "🔍" }
+        ]
+    },
+    {
+        id: 18,
+        question: "여행 계획을 세울 때 당신의 모습은?",
+        dimension: "JP",
+        options: [
+            { text: "시간 단위로 일정을 짜고 예약을 미리 다 해둬야 해요", value: "J", emoji: "📍" },
+            { text: "꼭 가야 할 곳 몇 군데만 정하고 나머지는 발길 닿는 대로 가요", value: "P", emoji: "👟" }
+        ]
+    },
+    {
+        id: 19,
+        question: "영화나 드라마를 볼 때 더 끌리는 장르는?",
+        dimension: "SN",
+        options: [
+            { text: "현실적이고 공감 가는 일상물이나 실화 기반 영화", value: "S", emoji: "🎥" },
+            { text: "독특한 세계관의 판타지나 미스테리 SF 영화", value: "N", emoji: "🛸" }
+        ]
+    },
+    {
+        id: 20,
+        question: "선물을 고를 때 당신의 기준은?",
+        dimension: "TF",
+        options: [
+            { text: "상대방에게 정말 필요하고 실용적인 물건", value: "T", emoji: "🎁" },
+            { text: "상대방의 취향과 정성이 느껴지는 감성적인 물건", value: "F", emoji: "💌" }
         ]
     }
 ];
+
 
 // 16가지 MBTI 유형별 정보 (직장인 특성 반영, 동료 위로 메시지 포함)
 const mbtiTypes = {
@@ -127,8 +218,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ENFP", "ENTP"],
         worstMatch: ["ESFP", "ISFP"],
-        recommendedTeam: "전략기획실 / 미래전략TF",
-        teamReason: "장기 비전과 전략적 사고에 강점",
+        recommendedTeams: [
+            { name: "전략기획실", reason: "전사 중장기 전략 수립 및 사업 포트폴리오 최적화 업무 (표준업무: 전략기획)" },
+            { name: "미래전략TF", reason: "신사업 기회 발굴 및 시장 트렌드 분석을 통한 비전 제시 (표준업무: 사업개발)" },
+            { name: "기술기획팀", reason: "차세대 방송 플랫폼 기술 로드맵 수립 및 기술 검토 (표준업무: 기술기획)" },
+            { name: "데이터분석팀", reason: "빅데이터 기반 고객 행동 패턴 분석 및 인사이트 도출 (표준업무: 데이터분석)" },
+            { name: "재무관리팀", reason: "정교한 수치 기반의 손익 관리 및 경영 리스크 분석 (표준업무: 재무분석)" }
+        ],
         notRecommendedTeam: "고객센터혁신팀 / 대외협력팀",
         notTeamReason: "감정 소모가 큰 고객 응대와 잦은 대인 관계 업무가 부담될 수 있음",
         colleagueMessage: "\"당신의 전략적 사고는 팀에 없어서는 안 될 자산이에요. 가끔은 완벽하지 않아도 괜찮으니, 쉬어가면서 해요. 우리가 곁에 있잖아요.\"",
@@ -169,8 +265,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ENTJ", "ESTJ"],
         worstMatch: ["ESFJ", "ISFJ"],
-        recommendedTeam: "기술개발부 / 디지털혁신본부",
-        teamReason: "논리적 분석과 새로운 기술적 시도에 강점",
+        recommendedTeams: [
+            { name: "기술개발부", reason: "차세대 방송 송출 시스템 개발 및 아키텍처 설계 (표준업무: 시스템개발)" },
+            { name: "디지털혁신본부", reason: "AI 및 클라우드 기반 디지털 전환 프로세스 설계 (표준업무: IT전략기획)" },
+            { name: "콘텐츠연구소", reason: "미디어 시장 트렌드 분석 및 콘텐츠 수급 알고리즘 연구 (표준업무: 미디어연구)" },
+            { name: "보안운영팀", reason: "논리적 취약점 분석 및 전사 보안 시스템 고도화 (표준업무: 정보보안)" },
+            { name: "서비스품질관리팀", reason: "데이터 기반 서비스 오류 패턴 분석 및 근본 원인 해결 (표준업무: 품질관리)" }
+        ],
         notRecommendedTeam: "인사팀 / 총무팀",
         notTeamReason: "반복적인 루틴과 꼼꼼한 규정 관리가 답답하게 느껴질 수 있음",
         colleagueMessage: "\"당신의 천재적인 아이디어는 우리 팀을 항상 깨어 있게 해요. 혼자 고민하지 말고 가끔은 우리와 나눠봐요. 함께라면 더 멋진 결과가 나올 거예요.\"",
@@ -211,8 +312,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["INTP", "INFJ"],
         worstMatch: ["ISFP", "ESFP"],
-        recommendedTeam: "영업부 / 사업전략부본부",
-        teamReason: "강한 추진력과 성과 중심의 리더십",
+        recommendedTeams: [
+            { name: "영업기획부", reason: "전사 영업 목표 수립 및 유통망 확장 관리 (표준업무: 영업전략)" },
+            { name: "사업전략본부", reason: "글로벌 비즈니스 모델 발굴 및 대형 제휴 추진 (표준업무: 사업전략)" },
+            { name: "유선사업팀", reason: "인터넷/TV 상품 경쟁력 강화 및 목표 달성 리딩 (표준업무: 상품기획)" },
+            { name: "경영개선실", reason: "전사 조직 운영 효율화 및 프로세스 혁신 주도 (표준업무: 경영혁신)" },
+            { name: "무선사업팀", reason: "MVNO 시장 점유율 확대를 위한 공격적 마케팅 전략 실행 (표준업무: 가입자유치)" }
+        ],
         notRecommendedTeam: "운영지원팀 / 고객지원팀",
         notTeamReason: "정적인 운영 업무나 감성적인 지원 업무에 지루함을 느낄 수 있음",
         colleagueMessage: "\"당신의 리더십은 우리를 항상 바른 방향으로 이끌어줘요. 가끔은 우리 뒤를 보며 조금 천천히 걸어도 괜찮아요. 우리는 당신을 믿고 따라갈게요.\"",
@@ -253,8 +359,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["INFJ", "INTJ"],
         worstMatch: ["ISFJ", "ESFJ"],
-        recommendedTeam: "콘텐츠전략팀 / 서비스기획실",
-        teamReason: "트렌드 민감도와 창의적 발상에 강점",
+        recommendedTeams: [
+            { name: "콘텐츠전략팀", reason: "신규 미디어 콘텐츠 트렌드 분석 및 수급 전략 기획 (표준업무: 콘텐츠기획)" },
+            { name: "서비스기획실", reason: "사용자 중심의 차세대 TV UI/UX 혁신 아이디어 제안 (표준업무: 서비스디자인)" },
+            { name: "마케팅랩", reason: "기발한 바이럴 마케팅 캠페인 기획 및 광고 집행 (표준업무: 광고기획)" },
+            { name: "브랜드혁신TF", reason: "기업 브랜드 이미지 쇄신을 위한 실험적인 캠페인 추진 (표준업무: 브랜드매니지먼트)" },
+            { name: "플랫폼사업진흥팀", reason: "새로운 가입자 유치 모델 발굴 및 제휴 채널 다각화 (표준업무: 채널사업)" }
+        ],
         notRecommendedTeam: "법무팀 / 세무팀",
         notTeamReason: "경직된 법률 검토와 세무 절차 준수가 답답할 수 있음",
         colleagueMessage: "\"당신의 거침없는 아이디어는 우리 팀의 사이다예요! 가끔은 열띤 토론 후에 우리와 함께 커피 한잔해요. 당신의 에너지가 우리에겐 꼭 필요하거든요.\"",
@@ -264,6 +375,7 @@ const mbtiTypes = {
             { name: "토마스 에디슨", title: "발명가", image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Thomas_Edison2.jpg" }
         ]
     },
+
     INFJ: {
         name: "스카이라이프의 선지자",
         emoji: "🌊",
@@ -295,8 +407,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ENFP", "ENTP"],
         worstMatch: ["ESTP", "ISTP"],
-        recommendedTeam: "브랜드커뮤니케이션실 / 사회공헌TF",
-        teamReason: "타인에 대한 깊은 이해와 선한 가치 전달에 강점",
+        recommendedTeams: [
+            { name: "브랜드커뮤니케이션실", reason: "기업 철학 및 가치 중심의 브랜드 스토리텔링 및 홍보 (표준업무: 브랜드홍보)" },
+            { name: "사회공헌TF", reason: "지역 사회 상생 및 ESG 경영 관련 가치 창출 프로젝트 추진 (표준업무: CSR)" },
+            { name: "윤리경영팀", reason: "사내 공정 가치 확립 및 임직원 대상 윤리 교육/가이드 수립 (표준업무: 준법감시)" },
+            { name: "인재육성팀", reason: "구성원들의 성장과 심리적 안정을 돕는 교육 프로그램 기획 (표준업무: HRD)" },
+            { name: "콘텐츠심의팀", reason: "방송 콘텐츠의 가치 기준 준수 여부 및 공익성 검토 (표준업무: 정책심의)" }
+        ],
         notRecommendedTeam: "구매팀 / 물류센터",
         notTeamReason: "수치와 효율 중심의 냉정한 협상이 정서적으로 힘들 수 있음",
         colleagueMessage: "\"당신의 따뜻한 말 한마디는 우리 팀의 안식처예요. 남들을 챙기는 만큼 자신도 꼭 돌봐주세요. 당신이 행복해야 우리 팀도 행복하니까요.\"",
@@ -337,8 +454,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ENFJ", "ENTJ"],
         worstMatch: ["ESTJ", "ISTJ"],
-        recommendedTeam: "디자인팀 / 광고기획팀",
-        teamReason: "풍부한 감수성과 창의적 표현력에 강점",
+        recommendedTeams: [
+            { name: "디자인팀", reason: "사용자 감성을 자극하는 TV UI 및 그래픽 디자인 제작 (표준업무: 시각디자인)" },
+            { name: "광고기획팀", reason: "공감을 불러일으키는 카피라이팅 및 영상 광고 스토리 기획 (표준업무: 매체기획)" },
+            { name: "콘텐츠제작실", reason: "독창적인 소재 발굴 및 감성적인 미디어 프로그램 제작 (표준업무: 연출출)" },
+            { name: "조직문화팀", reason: "직원들의 유대감을 높이는 사내 이벤트 및 힐링 공간 기획 (표준업무: 기업문화)" },
+            { name: "사용자경험팀", reason: "심층 면접 기반의 고객 페르소나 정의 및 니즈 분석 (표준업무: UX리서치)" }
+        ],
         notRecommendedTeam: "재무팀 / 감사실",
         notTeamReason: "딱딱한 수치 관리와 엄격한 규정 적용이 맞지 않을 수 있음",
         colleagueMessage: "\"당신의 독창적인 생각은 우리 팀의 보물이에요. 가끔 세상이 너무 차갑게 느껴져도 우리가 당신을 지켜줄게요. 당신의 따뜻한 꿈을 계속 응원해요.\"",
@@ -379,8 +501,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["INFP", "ISFP"],
         worstMatch: ["ISTP", "ESTP"],
-        recommendedTeam: "HRD팀 / 인재육성실",
-        teamReason: "사람을 키우고 이끄는 교육적 마인드에 강점",
+        recommendedTeams: [
+            { name: "HRD팀", reason: "전사 교육 체계 수립 및 구성원 역량 강화 프로그램 주도 (표준업무: 교육기획)" },
+            { name: "인재채용본부", reason: "스카이라이프의 비전 전파 및 협업 중심의 우수 인재 영입 (표준업무: 채용)" },
+            { name: "사내커뮤니케이션실", reason: "경영진-직원 간 소통 활성화 및 화합의 문화 조성 (표준업무: 사내홍보)" },
+            { name: "고객만족팀", reason: "고객 접점 서비스 마인드 교육 및 고객 경험 개선 캠페인 (표준업무: CS기획)" },
+            { name: "사업파트너협력팀", reason: "대외 파트너사와의 유대 강화 및 원활한 협업 관계 구축 (표준업무: 파트너십)" }
+        ],
         notRecommendedTeam: "정보보안팀 / 인프라관리팀",
         notTeamReason: "기계적인 보안 관리와 폐쇄적인 업무 환경이 답답할 수 있음",
         colleagueMessage: "\"당신 덕분에 우리 팀이 하나로 뭉칠 수 있어요. 우리를 위해 애쓰는 것도 좋지만, 때로는 자신의 마음도 먼저 살펴봐 주세요. 당신의 웃음이 우리의 힘입니다!\"",
@@ -421,8 +548,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["INFJ", "INTJ"],
         worstMatch: ["ISTJ", "ESTJ"],
-        recommendedTeam: "홍보팀 / 마케팅커뮤니케이션실",
-        teamReason: "친화력 있는 소통과 창의적 홍보 감각에 강점",
+        recommendedTeams: [
+            { name: "홍보팀", reason: "언론 네트워크 구축 및 대외 이미지 제고를 위한 창의적 기사 기획 (표준업무: 대외홍보)" },
+            { name: "마케팅커뮤니케이션실", reason: "트렌디한 소셜 미디어 캠페인 및 고객 참여형 이벤트 기획 (표준업무: 마케팅)" },
+            { name: "서비스디자인팀", reason: "뻔하지 않은 새로운 서비스 컨셉 도출 및 사용자 경험 혁신 (표준업무: 서비스디자인)" },
+            { name: "방송기획팀", reason: "새로운 예능/교양 프로그램 포맷 발굴 및 기획 참여 (표준업무: 방송기획기)" },
+            { name: "가입자증대TF", reason: "톡톡 튀는 아이디어로 새로운 타겟층 공략 및 가입 유도 (표준업무: 프로모션)" }
+        ],
         notRecommendedTeam: "품질관리팀 / 정산팀",
         notTeamReason: "꼼꼼한 검수업무와 반복되는 정산 작업이 업무 흥미를 떨어뜨림",
         colleagueMessage: "\"당신과 함께 있으면 업무 시간이 순식간에 지나가요! 당신의 밝은 에너지가 우리 팀의 비타민입니다. 가끔은 실수를 해도 괜찮아요, 우리가 있잖아요!\"",
@@ -432,6 +564,7 @@ const mbtiTypes = {
             { name: "월트 디즈니", title: "디즈니 창업자", image: "https://upload.wikimedia.org/wikipedia/commons/d/df/Walt_Disney_1946.JPG" }
         ]
     },
+
     ISTJ: {
         name: "스카이라이프의 믿음직한 프로",
         emoji: "🏆",
@@ -463,8 +596,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ESFP", "ESTP"],
         worstMatch: ["ENFP", "ENTP"],
-        recommendedTeam: "회계팀 / 정산관리팀",
-        teamReason: "정확성과 체계적 업무 수행",
+        recommendedTeams: [
+            { name: "회계팀", reason: "전사 예산 집행 관리 및 정확한 결산 업무 수행 (표준업무: 회계정산)" },
+            { name: "정산관리팀", reason: "방송/통신 서비스 가입자 매출 정산 및 수수료 검증 (표준업무: 매출관리)" },
+            { name: "구매팀", reason: "투명하고 체계적인 구매 절차 준수 및 협력업체 계약 관리 (표준업무: 구매관리)" },
+            { name: "감사실", reason: "사내 규정 준수 여부 점검 및 원칙 기반의 리스크 예방 (표준업무: 내부감사)" },
+            { name: "시설관리팀", reason: "매뉴얼 기반의 안전한 시설 운영 및 정기 점검 업무 (표준업무: 관재)" }
+        ],
         notRecommendedTeam: "브랜드혁신TF / 미디어UX팀",
         notTeamReason: "빈번한 변화와 창의적 실험이 요구되는 환경이 불편할 수 있음",
         colleagueMessage: "\"당신이 있어서 우리 팀이 안정적으로 굴러가요. 묵묵히 해주는 모든 일, 다 보고 있어요. 정말 고마워요.\"",
@@ -505,8 +643,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ESFP", "ESTP"],
         worstMatch: ["ENTP", "INTP"],
-        recommendedTeam: "경영지원팀 / 서비스지원팀",
-        teamReason: "안정적이고 세심한 서포트",
+        recommendedTeams: [
+            { name: "경영지원팀", reason: "사내 임직원 복리후생 관리 및 쾌적한 근무 환경 지원 (표준업무: 급여/복리)" },
+            { name: "서비스지원팀", reason: "대리점 및 파트너사 대상 교육 지원 및 행정 업무 처리 (표준업무: 영업지원)" },
+            { name: "고객지원팀", reason: "고객 문의에 대한 성실한 응대 및 고객 만족도 향상 지원 (표준업무: CS지원)" },
+            { name: "총무팀", reason: "전사 자산 관리 및 원활한 사무 환경 조성을 위한 세심한 서포트 (표준업무: 자산관리)" },
+            { name: "비서실", reason: "경영진의 일정을 세심하게 관리하고 조용히 내조하는 역할 (표준업무: 수행비서)" }
+        ],
         notRecommendedTeam: "영업총괄 / 브랜드혁신TF",
         notTeamReason: "공격적 목표와 빠른 변화에 대한 압박이 스트레스가 될 수 있음",
         colleagueMessage: "\"당신이 조용히 챙겨주는 것들, 다 느끼고 있어요. 이번엔 당신이 챙김을 받을 차례예요. 우리가 곁에 있을게요.\"",
@@ -547,8 +690,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ISFP", "ISTP"],
         worstMatch: ["INFP", "ENFP"],
-        recommendedTeam: "영업기획팀 / 요금관리팀",
-        teamReason: "효율적 관리와 목표 달성",
+        recommendedTeams: [
+            { name: "영업기획팀", reason: "명확한 실적 목표 수립 및 유통 채널별 성과 지표 관리 (표준업무: 성과관리)" },
+            { name: "요금관리팀", reason: "요금 체계 확립 및 회수 프로세스 관리 (표준업무: 과금정책)" },
+            { name: "운영지원본부", reason: "전사 지원 체계 구축 및 매뉴얼 기반의 효율적 조직 운영 (표준업무: 운영기획기)" },
+            { name: "물류센터", reason: "셋톱박스 및 기자재 수급 관리 및 재고 회전 효율화 (표준업무: 물류운영)" },
+            { name: "품질관리팀", reason: "엄격한 서비스 품질 기준 수립 및 장애 예방 프로세스 확립 (표준업무: 품질관리)" }
+        ],
         notRecommendedTeam: "미디어UX팀 / 홍보CSR팀",
         notTeamReason: "창의적이고 감성적인 접근이 필요한 업무가 어려울 수 있음",
         colleagueMessage: "\"당신의 추진력 덕분에 우리가 목표를 달성할 수 있어요. 가끔은 속도를 늦춰도 괜찮아요. 우리가 함께 가고 있으니까요.\"",
@@ -589,8 +737,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ISFP", "ISTP"],
         worstMatch: ["INTP", "INTJ"],
-        recommendedTeam: "고객센터혁신팀 / DX지원팀",
-        teamReason: "고객/동료 케어와 협력",
+        recommendedTeams: [
+            { name: "고객센터혁신팀", reason: "고객 접점 상담 품질 개선 및 상담사 케어/교육 (표준업무: CS관리)" },
+            { name: "DX지원팀", reason: "새로운 시스템 도입 시 임직원 적응 지원 및 교육 (표준업무: 변화관리)" },
+            { name: "대외커뮤니케이션팀", reason: "언론사 및 외부 유관기관과 원만하게 소통 기조 유지 (표준업무: PR)" },
+            { name: "총무복지팀", reason: "임직원 만족도 향상을 위한 다양한 사내 복지 프로그램 운영 (표준업무: 복리후생지원)" },
+            { name: "영업채널관리팀", reason: "대리점주 및 외부 채널들과의 유대 강화 및 애로사항 해결 (표준업무: 파트너사업)" }
+        ],
         notRecommendedTeam: "기술전략팀 / 미래전략TF",
         notTeamReason: "독립적이고 추상적인 전략 업무보다 사람과 함께하는 역할에 적합",
         colleagueMessage: "\"당신이 챙겨줘서 우리 팀이 따뜻해요. 이젠 당신도 쉬어도 돼요. 우리가 당신을 챙길게요.\"",
@@ -600,6 +753,7 @@ const mbtiTypes = {
             { name: "제니퍼 가너", title: "배우", image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Jennifer_Garner_by_Gage_Skidmore.jpg" }
         ]
     },
+
     ISTP: {
         name: "스카이라이프의 문제해결 달인",
         emoji: "🔧",
@@ -631,8 +785,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ESTJ", "ENTJ"],
         worstMatch: ["ENFJ", "INFJ"],
-        recommendedTeam: "IT운영팀 / 디바이스팀",
-        teamReason: "문제 해결과 기술적 전문성",
+        recommendedTeams: [
+            { name: "IT운영팀", reason: "전사 방송/IT 시스템의 안정적 운영 및 장애 긴급 대응 (표준업무: 시스템운영)" },
+            { name: "디바이스개발팀", reason: "셋톱박스 및 홈 기기 하드웨어 검증 및 연동 테스트 (표준업무: 단말개발)" },
+            { name: "네트워크관리팀", reason: "통신 인프라 및 네트워크 장비 유지 보수 (표준업무: 인프라관리)" },
+            { name: "보안기술팀", reason: "실제적인 보안 취약점 점검 및 보안 솔루션 운영 (표준업무: 보안기술)" },
+            { name: "미디어운용센터", reason: "방송 송출 장비 관리 및 실시간 기술 모니터링 (표준업무: 송출기술)" }
+        ],
         notRecommendedTeam: "인사팀 / 홍보CSR팀",
         notTeamReason: "감정적 교류와 사회적 활동이 많은 업무가 불편할 수 있음",
         colleagueMessage: "\"문제가 생기면 당신이 있어서 든든해요. 말수가 적어도 당신의 실력은 다 알아요. 고마워요.\"",
@@ -673,8 +832,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ESFJ", "ESTJ"],
         worstMatch: ["ENTJ", "INTJ"],
-        recommendedTeam: "플랫폼사업팀 / 미디어운용센터",
-        teamReason: "유연한 업무 스타일과 실용성",
+        recommendedTeams: [
+            { name: "플랫폼사업팀", reason: "사용자 친화적인 방송 서비스 기획 및 실무 지원 (표준업무: 서비스운영)" },
+            { name: "콘텐츠수급팀", reason: "감성적인 안목으로 인기 영화/VOD 리스트업 및 관리 (표준업무: 콘텐츠운영)" },
+            { name: "미디어운용팀", reason: "현장에 어우러지는 방송 송출 보조 및 실무 지원 (표준업무: 기술지원)" },
+            { name: "영업지원팀", reason: "대리점 및 파트너사 현장에 필요한 실용적인 업무 서포트 (표준업무: 대리점지원)" },
+            { name: "디자인실", reason: "차분하고 조화로운 톤앤매너의 홍보물 및 콘텐츠 제작 (표준업무: 디자인지원)" }
+        ],
         notRecommendedTeam: "경영기획총괄 / 영업기획팀",
         notTeamReason: "공격적 목표와 경쟁적 환경이 에너지를 소진시킬 수 있음",
         colleagueMessage: "\"당신이 있으면 마음이 편해져요. 조용히 팀을 지켜주는 당신, 정말 소중해요. 자신을 더 믿어도 돼요.\"",
@@ -715,8 +879,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ISTJ", "ISFJ"],
         worstMatch: ["INFJ", "INTJ"],
-        recommendedTeam: "유선사업팀 / 무선사업팀",
-        teamReason: "빠른 실행력과 현장 대응",
+        recommendedTeams: [
+            { name: "유선사업팀", reason: "현장 밀착형 영업 전략 실행 및 가입자 유치 주도 (표준업무: 현장영업)" },
+            { name: "무선사업팀", reason: "모바일 시장 환경 변화에 따른 기민한 마케팅 대응 (표준업무: 마케팅실행)" },
+            { name: "B2B영업팀", reason: "기업 고객 발굴을 위한 공격적인 제휴 및 협상 수행 (표준업무: 법인영업)" },
+            { name: "방송프로모션팀", reason: "대규모 시청자 참여 행사 기획 및 현장 운영 총괄 (표준업무: 프로모션)" },
+            { name: "유통망관리팀", reason: "전국 대리점 현장 방문 점검 및 영업 활력 제고 (표준업무: 유통망지원)" }
+        ],
         notRecommendedTeam: "전략기획실 / 기술전략팀",
         notTeamReason: "장기적 전략 수립과 추상적 분석 업무가 지루할 수 있음",
         colleagueMessage: "\"당신의 행동력이 팀을 움직여요! 가끔 속도를 늦춰도 괜찮아요. 우리가 옆에서 함께 달릴게요.\"",
@@ -757,8 +926,13 @@ const mbtiTypes = {
         ],
         bestMatch: ["ISTJ", "ISFJ"],
         worstMatch: ["INTJ", "INTP"],
-        recommendedTeam: "디지털영업팀 / 대외협력팀",
-        teamReason: "활발한 소통과 에너지",
+        recommendedTeams: [
+            { name: "디지털영업팀", reason: "라이브 커머스 및 SNS 기반의 활기찬 고객 소통과 유입 유도 (표준업무: 온라인영업)" },
+            { name: "대외협력팀", reason: "방송 유관 단체 및 미디어 파트너사와의 친화적인 네트워크 형성 (표준업무: 대외협력)" },
+            { name: "SNS마케팅팀", reason: "재미있고 톡톡 튀는 쇼츠 영상 및 콘텐츠 제작 참여 (표준업무: SNS운영)" },
+            { name: "사내행사기획팀", reason: "임직원 사기 진작을 위한 다큐멘터리/행사 기획 및 진행 (표준업무: 사내문화)" },
+            { name: "고객참여프로그램팀", reason: "시청자 대상 견학 및 체험 프로그램 운영/가이드 (표준업무: 체험마케팅)" }
+        ],
         notRecommendedTeam: "회계팀 / IT운영팀",
         notTeamReason: "반복적이고 독립적인 업무 환경이 답답할 수 있음",
         colleagueMessage: "\"당신 덕분에 회사 오는 게 즐거워요! 그 밝은 에너지, 잃지 마세요. 우리 팀의 햇살이니까요.\"",
@@ -768,6 +942,7 @@ const mbtiTypes = {
             { name: "마릴린 먼로", title: "배우", image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Marilyn_Monroe_Publicity_Photo_1953.jpg" }
         ]
     },
+
 };
 
 // 찐친력 (호환성) 점수 매트릭스

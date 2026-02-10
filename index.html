@@ -111,10 +111,30 @@
 
                 <h1 class="intro-title">내 스카이라이프<br>찐친을 찾아라!</h1>
 
-                <p class="intro-subtitle">
-                    10가지 직장생활 에피소드로 알아보는<br>
-                    나의 업무 스타일과 찐친 케미 💚
-                </p>
+                <div class="expected-mbti-section">
+                    <p class="section-label">내가 생각하는 나의 MBTI는? 🤔</p>
+                    <div class="mbti-selector-container">
+                        <select id="expected-mbti-select" class="mbti-select">
+                            <option value="" disabled selected>MBTI 선택</option>
+                            <option value="INTJ">INTJ</option>
+                            <option value="INTP">INTP</option>
+                            <option value="ENTJ">ENTJ</option>
+                            <option value="ENTP">ENTP</option>
+                            <option value="INFJ">INFJ</option>
+                            <option value="INFP">INFP</option>
+                            <option value="ENFJ">ENFJ</option>
+                            <option value="ENFP">ENFP</option>
+                            <option value="ISTJ">ISTJ</option>
+                            <option value="ISFJ">ISFJ</option>
+                            <option value="ESTJ">ESTJ</option>
+                            <option value="ESFJ">ESFJ</option>
+                            <option value="ISTP">ISTP</option>
+                            <option value="ISFP">ISFP</option>
+                            <option value="ESTP">ESTP</option>
+                            <option value="ESFP">ESFP</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button id="start-btn" class="btn btn-primary">
                     시작하기 🚀
@@ -125,6 +145,18 @@
         <!-- ========== 퀴즈 화면 ========== -->
         <section id="quiz-screen" class="screen">
             <div class="card quiz-card">
+                <!-- 퀴즈 상단 브랜딩 영역 -->
+                <div class="quiz-branding">
+                    <div class="skylife-emblem">
+                        <span class="emblem-text">SKY Life</span>
+                        <div class="pulse-dots">
+                            <div class="pulse-dot"></div>
+                            <div class="pulse-dot"></div>
+                            <div class="pulse-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="progress-container">
                     <button id="back-btn" class="back-btn" title="이전 질문으로">
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
@@ -185,7 +217,35 @@
             <div class="card result-card">
                 <!-- 결과 카드 내용 (이미지 캡처 대상) -->
                 <div id="result-card-content" class="result-card-inner">
+                    <!-- 스카이라이프 사원증 테마 헤더 -->
+                    <div class="skylife-id-header">
+                        <div class="id-logo">
+                            <span class="id-brand">SKY Life</span>
+                            <span class="id-label">PROFESSIONAL ID</span>
+                        </div>
+                        <div class="id-chip"></div>
+                    </div>
+
                     <header class="result-header">
+                        <!-- MBTI 비교 섹션 -->
+                        <div class="mbti-comparison-badge">
+                            <div class="comparison-item expected">
+                                <span class="comp-label">예상</span>
+                                <span class="comp-value" id="expected-mbti-display">-</span>
+                            </div>
+                            <div class="comparison-arrow">➡️</div>
+                            <div class="comparison-item actual">
+                                <span class="comp-label">결과</span>
+                                <span class="comp-value" id="actual-mbti-display">INTJ</span>
+                            </div>
+                        </div>
+
+                        <!-- 자기이해 지수 섹션 -->
+                        <div class="self-match-section" id="self-match-section">
+                            <p class="match-score-text">나의 자기이해 지수: <span id="match-score">0%</span></p>
+                            <p class="match-message" id="match-message">분석 중...</p>
+                        </div>
+
                         <span class="result-emoji" id="result-emoji">🎯</span>
                         <span class="result-type-badge" id="result-type">INTJ</span>
                         <h2 class="result-title" id="result-title">스카이라이프의 전략가</h2>
@@ -228,11 +288,12 @@
                         </div>
                     </div>
 
-                    <!-- 추천 팀 -->
+                    <!-- 추천 팀 (확장됨) -->
                     <div class="team-section recommended">
-                        <h3 class="section-title">🏢 추천 팀</h3>
-                        <p class="team-name" id="team-name">전략기획실 / 미래전략TF</p>
-                        <p class="team-reason" id="team-reason">장기 비전과 전략적 사고에 강점</p>
+                        <h3 class="section-title">🏢 스카이라이프 추천 팀 TOP 5</h3>
+                        <div class="team-list" id="recommended-teams-list">
+                            <!-- Dynamically inserted: team-item cards -->
+                        </div>
                     </div>
 
                     <!-- 비추천 팀 -->
