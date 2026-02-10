@@ -39,10 +39,10 @@ class MBTIQuizApp {
             this.resetQuiz();
         });
 
-        // 공유하기 버튼
-        document.getElementById('share-btn').addEventListener('click', () => {
-            this.shareResult();
-        });
+        // 공유 버튼
+        document.getElementById('kakao-share-btn').addEventListener('click', () => this.shareToKakao());
+        document.getElementById('teams-share-btn').addEventListener('click', () => this.shareToTeams());
+        document.getElementById('copy-link-btn').addEventListener('click', () => this.copyLink());
 
         // 뒤로가기 버튼
         document.getElementById('back-btn').addEventListener('click', () => {
@@ -356,26 +356,44 @@ class MBTIQuizApp {
         });
     }
 
-    shareResult() {
+    shareToKakao() {
         const mbti = this.calculateMBTI();
         const typeInfo = mbtiTypes[mbti];
+        const shareTitle = `내 스카이라이프 찐친은? "${typeInfo.name}" (${mbti})`;
+        const shareUrl = window.location.href;
 
-        const shareText = `나의 스카이라이프 찐친 유형은 "${typeInfo.name}" (${mbti})! 🎉\n당신의 찐친 유형도 확인해보세요! 💚\n#스카이라이프찐친테스트 #MBTI`;
+        // 카카오톡 공유 URL (Sharer 방식)
+        const kakaoUrl = `https://sharer.kakao.com/talk/friends/picker/link?app_key=SKYLIFE_MBTI&short_url=${encodeURIComponent(shareUrl)}`;
+        window.open(kakaoUrl, '_blank');
+    }
 
-        if (navigator.share) {
-            navigator.share({
-                title: '내 스카이라이프 찐친을 찾아라!',
-                text: shareText,
-                url: window.location.href
-            }).catch(console.error);
-        } else {
-            // 클립보드 복사 fallback
-            navigator.clipboard.writeText(shareText).then(() => {
-                alert('결과가 클립보드에 복사되었습니다! 📋');
-            }).catch(() => {
-                alert(shareText);
-            });
-        }
+    shareToTeams() {
+        const mbti = this.calculateMBTI();
+        const typeInfo = mbtiTypes[mbti];
+        const shareText = `나의 스카이라이프 찐친 유형은 "${typeInfo.name}" (${mbti})! 🎉 당신의 찐친 유형도 확인해보세요!`;
+        const shareUrl = window.location.href;
+
+        // Microsoft Teams 공유 URL
+        const teamsUrl = `https://teams.microsoft.com/share?text=${encodeURIComponent(shareText)}&href=${encodeURIComponent(shareUrl)}`;
+        window.open(teamsUrl, '_blank');
+    }
+
+    copyLink() {
+        const shareUrl = window.location.href;
+
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert('링크가 클립보드에 복사되었습니다! 📋');
+        }).catch(err => {
+            console.error('링크 복사 실패:', err);
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = shareUrl;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert('링크가 복사되었습니다! 📋');
+        });
     }
 }
 

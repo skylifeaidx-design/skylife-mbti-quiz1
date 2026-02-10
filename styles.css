@@ -1015,30 +1015,77 @@ body {
     margin-top: 16px;
 }
 
-/* Action Buttons */
+/* Result Actions & Sharing */
 .result-actions {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     margin-top: 32px;
 }
 
-.result-actions .btn {
-    width: 100%;
+.share-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.btn-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 80px;
+    padding: 12px 0;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-icon .icon {
+    font-size: 24px;
+}
+
+.btn-icon .label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.btn-icon:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 /* ========================================
    Share Button
 ======================================== */
-.btn-share {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+.btn-icon.kakao {
+    background: #FEE500;
 }
 
-.btn-share:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+.btn-icon.kakao .label {
+    color: #3C1E1E;
+}
+
+.btn-icon.teams {
+    background: #464EB8;
+}
+
+.btn-icon.teams .label {
+    color: white;
+}
+
+.btn-icon.copy {
+    background: #f0f0f0;
+}
+
+.btn-icon.copy .label {
+    color: #333;
 }
 
 /* ========================================
@@ -1111,19 +1158,20 @@ body {
         font-size: 36px;
     }
 
-    .representatives-container {
-        gap: 10px;
+    .share-group {
+        gap: 8px;
     }
 
-    .representative-card {
-        padding: 8px;
+    .btn-icon {
+        width: 70px;
+        padding: 10px 0;
     }
 
-    .rep-name {
-        font-size: 12px;
+    .btn-icon .icon {
+        font-size: 20px;
     }
 
-    .rep-title {
+    .btn-icon .label {
         font-size: 10px;
     }
 }
