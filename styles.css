@@ -1088,6 +1088,28 @@ body {
     color: #333;
 }
 
+.btn-icon.save {
+    background: linear-gradient(135deg, #05C753 0%, #00B8D4 100%);
+}
+
+.btn-icon.save .label {
+    color: white;
+}
+
+.btn-icon.save .icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Capture Area Styling */
+.result-card-inner {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 /* ========================================
    Scrollbar
 ======================================== */

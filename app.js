@@ -26,6 +26,9 @@ class MBTIQuizApp {
 
         // 배너 초기화
         this.initBanner();
+
+        // 딥링크 확인
+        this.checkDeepLink();
     }
 
     bindEvents() {
@@ -42,12 +45,22 @@ class MBTIQuizApp {
         // 공유 버튼
         document.getElementById('kakao-share-btn').addEventListener('click', () => this.shareToKakao());
         document.getElementById('teams-share-btn').addEventListener('click', () => this.shareToTeams());
+        document.getElementById('save-image-btn').addEventListener('click', () => this.saveAsImage());
         document.getElementById('copy-link-btn').addEventListener('click', () => this.copyLink());
 
         // 뒤로가기 버튼
         document.getElementById('back-btn').addEventListener('click', () => {
             this.goBack();
         });
+    }
+
+    checkDeepLink() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const mbtiParam = urlParams.get('mbti');
+
+        if (mbtiParam && mbtiTypes[mbtiParam.toUpperCase()]) {
+            this.showResult(mbtiParam.toUpperCase());
+        }
     }
 
     showScreen(screenName) {
@@ -221,13 +234,16 @@ class MBTIQuizApp {
         return mbti;
     }
 
-    showResult() {
-        const mbti = this.calculateMBTI();
+    showResult(forcedMbti = null) {
+        const mbti = forcedMbti || this.calculateMBTI();
         const typeInfo = mbtiTypes[mbti];
         const compatibility = compatibilityScores[mbti];
 
         // 결과 화면 표시
         this.showScreen('result');
+
+        // 결과 페이지로 스크롤 상단 이동
+        window.scrollTo(0, 0);
 
         // 기본 정보
         document.getElementById('result-emoji').textContent = typeInfo.emoji;
@@ -260,6 +276,8 @@ class MBTIQuizApp {
         // 동료 위로 메시지
         document.getElementById('colleague-message').textContent = typeInfo.colleagueMessage;
     }
+
+    // (기존 렌더링 메서드들 생략 - 그대로 유지)
 
     renderRepresentatives(representatives) {
         const container = document.getElementById('representatives-container');
@@ -320,6 +338,13 @@ class MBTIQuizApp {
         this.answers = [];
         this.resetScores();
 
+        // 스크롤 상단으로
+        window.scrollTo(0, 0);
+
+        // URL 파라미터 제거 (선택 사항 - 다시 하기 클릭 시 깔끔하게)
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+
         // 분석 화면 초기화
         const circleProgress = document.getElementById('circle-progress');
         if (circleProgress) circleProgress.style.strokeDashoffset = '565.48';
@@ -333,6 +358,8 @@ class MBTIQuizApp {
     initBanner() {
         const slider = document.getElementById('banner-slider');
         const dots = document.querySelectorAll('#banner-dots .dot');
+        if (!slider) return;
+
         let currentIndex = 0;
         const bannerCount = 5;
 
@@ -356,43 +383,71 @@ class MBTIQuizApp {
         });
     }
 
+    getDeepLinkUrl() {
+        const mbti = document.getElementById('result-type').textContent;
+        const baseUrl = window.location.origin + window.location.pathname;
+        return `${baseUrl}?mbti=${mbti}`;
+    }
+
     shareToKakao() {
-        const mbti = this.calculateMBTI();
+        const mbti = document.getElementById('result-type').textContent;
         const typeInfo = mbtiTypes[mbti];
         const shareTitle = `내 스카이라이프 찐친은? "${typeInfo.name}" (${mbti})`;
-        const shareUrl = window.location.href;
+        const shareUrl = this.getDeepLinkUrl();
 
-        // 카카오톡 공유 URL (Sharer 방식)
         const kakaoUrl = `https://sharer.kakao.com/talk/friends/picker/link?app_key=SKYLIFE_MBTI&short_url=${encodeURIComponent(shareUrl)}`;
         window.open(kakaoUrl, '_blank');
     }
 
     shareToTeams() {
-        const mbti = this.calculateMBTI();
+        const mbti = document.getElementById('result-type').textContent;
         const typeInfo = mbtiTypes[mbti];
         const shareText = `나의 스카이라이프 찐친 유형은 "${typeInfo.name}" (${mbti})! 🎉 당신의 찐친 유형도 확인해보세요!`;
-        const shareUrl = window.location.href;
+        const shareUrl = this.getDeepLinkUrl();
 
-        // Microsoft Teams 공유 URL
         const teamsUrl = `https://teams.microsoft.com/share?text=${encodeURIComponent(shareText)}&href=${encodeURIComponent(shareUrl)}`;
         window.open(teamsUrl, '_blank');
     }
 
     copyLink() {
-        const shareUrl = window.location.href;
+        const shareUrl = this.getDeepLinkUrl();
 
         navigator.clipboard.writeText(shareUrl).then(() => {
-            alert('링크가 클립보드에 복사되었습니다! 📋');
+            alert('결과 페이지 링크가 복사되었습니다! 📋');
         }).catch(err => {
             console.error('링크 복사 실패:', err);
-            // Fallback for older browsers
             const textArea = document.createElement("textarea");
             textArea.value = shareUrl;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");
             document.body.removeChild(textArea);
-            alert('링크가 복사되었습니다! 📋');
+            alert('결과 페이지 링크가 복사되었습니다! 📋');
+        });
+    }
+
+    saveAsImage() {
+        const target = document.getElementById('result-card-content');
+        if (!target) return;
+
+        const originalPadding = target.style.padding;
+        target.style.padding = '20px'; // 캡처 시 여백 확보
+
+        html2canvas(target, {
+            useCORS: true, // 외부 이미지(DiceBear 등) 허용
+            backgroundColor: "#ffffff",
+            scale: 2 // 고화질
+        }).then(canvas => {
+            target.style.padding = originalPadding;
+
+            const link = document.createElement('a');
+            const mbti = document.getElementById('result-type').textContent;
+            link.download = `skylife_mbti_${mbti}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }).catch(err => {
+            console.error('이미지 저장 실패:', err);
+            alert('이미지 저장 중 오류가 발생했습니다.');
         });
     }
 }

@@ -183,68 +183,72 @@
         <!-- ========== 결과 화면 ========== -->
         <section id="result-screen" class="screen">
             <div class="card result-card">
-                <header class="result-header">
-                    <span class="result-emoji" id="result-emoji">🎯</span>
-                    <span class="result-type-badge" id="result-type">INTJ</span>
-                    <h2 class="result-title" id="result-title">스카이라이프의 전략가</h2>
-                    <p class="result-description" id="result-description">냉철한 분석력과 장기적 비전으로 조직을 이끄는 전략적 사고의 달인</p>
-                </header>
+                <!-- 결과 카드 내용 (이미지 캡처 대상) -->
+                <div id="result-card-content" class="result-card-inner">
+                    <header class="result-header">
+                        <span class="result-emoji" id="result-emoji">🎯</span>
+                        <span class="result-type-badge" id="result-type">INTJ</span>
+                        <h2 class="result-title" id="result-title">스카이라이프의 전략가</h2>
+                        <p class="result-description" id="result-description">냉철한 분석력과 장기적 비전으로 조직을 이끄는 전략적 사고의 달인</p>
+                    </header>
 
-                <!-- 캐릭터 이미지 -->
-                <div class="representatives-section">
-                    <h3>유형별 대표 인물</h3>
-                    <div id="representatives-container" class="representatives-container">
-                        <!-- 유명인 카드가 여기에 동적으로 추가됨 -->
-                    </div>
-                </div>
-
-                <!-- 장점/단점 -->
-                <div class="traits-section">
-                    <div class="traits-grid">
-                        <div class="trait-card strengths">
-                            <span class="trait-icon">💪</span>
-                            <h3 class="trait-title">강점</h3>
-                            <ul class="trait-list" id="strengths-list">
-                                <!-- Dynamically inserted -->
-                            </ul>
-                        </div>
-                        <div class="trait-card weaknesses">
-                            <span class="trait-icon">🤔</span>
-                            <h3 class="trait-title">보완점</h3>
-                            <ul class="trait-list" id="weaknesses-list">
-                                <!-- Dynamically inserted -->
-                            </ul>
+                    <!-- 캐릭터 이미지 -->
+                    <div class="representatives-section">
+                        <h3>유형별 대표 인물</h3>
+                        <div id="representatives-container" class="representatives-container">
+                            <!-- 유명인 카드가 여기에 동적으로 추가됨 -->
                         </div>
                     </div>
-                </div>
 
-                <!-- 찐친력 호환성 -->
-                <div class="compatibility-section">
-                    <h3 class="section-title">💕 찐친력 호환성</h3>
-                    <div class="compatibility-grid" id="compatibility-grid">
-                        <!-- Dynamically inserted -->
+                    <!-- 장점/단점 -->
+                    <div class="traits-section">
+                        <div class="traits-grid">
+                            <div class="trait-card strengths">
+                                <span class="trait-icon">💪</span>
+                                <h3 class="trait-title">강점</h3>
+                                <ul class="trait-list" id="strengths-list">
+                                    <!-- Dynamically inserted -->
+                                </ul>
+                            </div>
+                            <div class="trait-card weaknesses">
+                                <span class="trait-icon">🤔</span>
+                                <h3 class="trait-title">보완점</h3>
+                                <ul class="trait-list" id="weaknesses-list">
+                                    <!-- Dynamically inserted -->
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- 추천 팀 -->
-                <div class="team-section recommended">
-                    <h3 class="section-title">🏢 추천 팀</h3>
-                    <p class="team-name" id="team-name">전략기획실 / 미래전략TF</p>
-                    <p class="team-reason" id="team-reason">장기 비전과 전략적 사고에 강점</p>
-                </div>
+                    <!-- 찐친력 호환성 -->
+                    <div class="compatibility-section">
+                        <h3 class="section-title">💕 찐친력 호환성</h3>
+                        <div class="compatibility-grid" id="compatibility-grid">
+                            <!-- Dynamically inserted -->
+                        </div>
+                    </div>
 
-                <!-- 비추천 팀 -->
-                <div class="team-section not-recommended">
-                    <h3 class="section-title">⚠️ 주의가 필요한 팀</h3>
-                    <p class="team-name" id="not-team-name">고객센터혁신팀 / 대외협력팀</p>
-                    <p class="team-reason" id="not-team-reason">감정 소모가 큰 고객 응대 업무와 잦은 외부 미팅이 부담될 수 있음</p>
-                </div>
+                    <!-- 추천 팀 -->
+                    <div class="team-section recommended">
+                        <h3 class="section-title">🏢 추천 팀</h3>
+                        <p class="team-name" id="team-name">전략기획실 / 미래전략TF</p>
+                        <p class="team-reason" id="team-reason">장기 비전과 전략적 사고에 강점</p>
+                    </div>
 
-                <!-- 동료들의 진솔한 한마디 -->
-                <div class="colleague-message-section">
-                    <h3 class="section-title">💬 나를 위한 동료들의 진솔한 한마디</h3>
-                    <p class="colleague-message" id="colleague-message">"당신의 전략적 사고는 팀에 없어서는 안 될 자산이에요. 가끔은 쉬어가도 괜찮아요."
-                    </p>
+                    <!-- 비추천 팀 -->
+                    <div class="team-section not-recommended">
+                        <h3 class="section-title">⚠️ 주의가 필요한 팀</h3>
+                        <p class="team-name" id="not-team-name">고객센터혁신팀 / 대외협력팀</p>
+                        <p class="team-reason" id="not-team-reason">감정 소모가 큰 고객 응대 업무와 잦은 외부 미팅이 부담될 수 있음</p>
+                    </div>
+
+                    <!-- 동료들의 진솔한 한마디 -->
+                    <div class="colleague-message-section">
+                        <h3 class="section-title">💬 나를 위한 동료들의 진솔한 한마디</h3>
+                        <p class="colleague-message" id="colleague-message">"당신의 전략적 사고는 팀에 없어서는 안 될 자산이에요. 가끔은 쉬어가도
+                            괜찮아요."
+                        </p>
+                    </div>
                 </div>
 
                 <!-- 액션 버튼 -->
@@ -257,6 +261,10 @@
                         <button id="teams-share-btn" class="btn-icon teams">
                             <span class="icon">👥</span>
                             <span class="label">팀즈</span>
+                        </button>
+                        <button id="save-image-btn" class="btn-icon save">
+                            <span class="icon">🖼️</span>
+                            <span class="label">이미지 저장</span>
                         </button>
                         <button id="copy-link-btn" class="btn-icon copy">
                             <span class="icon">🔗</span>
@@ -272,6 +280,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
