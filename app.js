@@ -235,10 +235,8 @@ class MBTIQuizApp {
         document.getElementById('result-title').textContent = typeInfo.name;
         document.getElementById('result-description').textContent = typeInfo.description;
 
-        // 캐릭터 이미지 (placeholder 사용)
-        const characterImg = document.getElementById('character-image');
-        characterImg.src = this.getCharacterImage(mbti);
-        characterImg.alt = `${mbti} 캐릭터`;
+        // 대표 인물 렌더링
+        this.renderRepresentatives(typeInfo.representatives);
 
         // 장점 목록
         const strengthsList = document.getElementById('strengths-list');
@@ -263,28 +261,21 @@ class MBTIQuizApp {
         document.getElementById('colleague-message').textContent = typeInfo.colleagueMessage;
     }
 
-    getCharacterImage(mbti) {
-        // MBTI 유형별 캐릭터 이미지 URL (placeholder)
-        const characterImages = {
-            'INTJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=strategist&backgroundColor=6B5B95&accessories=prescription02&clothing=blazerAndShirt',
-            'INTP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=ideabank&backgroundColor=88B04B&accessories=prescription01&clothing=hoodie',
-            'ENTJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=leader&backgroundColor=DD4124&clothing=blazerAndSweater&clothingColor=262e33',
-            'ENTP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=innovator&backgroundColor=009B77&clothing=overall&accessories=round',
-            'INFJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=charisma&backgroundColor=5B5EA6&hairColor=2c1b18&clothing=blazerAndShirt',
-            'INFP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=creator&backgroundColor=F7CAC9&accessories=prescription02&hairColor=d6b370',
-            'ENFJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=insider&backgroundColor=F7786B&clothing=blazerAndShirt&accessories=sunglasses',
-            'ENFP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=energy&backgroundColor=EFC050&clothing=hoodie&hairColor=b58143',
-            'ISTJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=pro&backgroundColor=45B8AC&clothing=blazerAndSweater&accessories=prescription01',
-            'ISFJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=supporter&backgroundColor=955251&clothing=collarAndSweater',
-            'ESTJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=driver&backgroundColor=B565A7&clothing=blazerAndShirt&accessories=kurt',
-            'ESFJ': 'https://api.dicebear.com/7.x/avataaars/svg?seed=caremanager&backgroundColor=92A8D1&clothing=collarAndSweater',
-            'ISTP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=solver&backgroundColor=6B4226&accessories=sunglasses&clothing=hoodie',
-            'ISFP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=healer&backgroundColor=DFCFBE&hairColor=b58143&clothing=overall',
-            'ESTP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=action&backgroundColor=D65076&accessories=wayfarers&clothing=graphicShirt',
-            'ESFP': 'https://api.dicebear.com/7.x/avataaars/svg?seed=star&backgroundColor=FF6F61&clothing=hoodie&accessories=sunglasses'
-        };
+    renderRepresentatives(representatives) {
+        const container = document.getElementById('representatives-container');
+        if (!container || !representatives) return;
 
-        return characterImages[mbti] || characterImages['INTJ'];
+        container.innerHTML = representatives.map(rep => `
+            <div class="representative-card">
+                <div class="rep-image-container">
+                    <img src="${rep.image}" alt="${rep.name}" class="rep-image" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=${rep.name}&backgroundColor=F0F0F0'">
+                </div>
+                <div class="rep-info">
+                    <span class="rep-name">${rep.name}</span>
+                    <span class="rep-title">${rep.title}</span>
+                </div>
+            </div>
+        `).join('');
     }
 
     renderCompatibility(mbti, compatibility, typeInfo) {
