@@ -77,6 +77,17 @@ class MBTIQuizApp {
         const select = document.getElementById('expected-mbti-select');
         this.expectedMbti = select ? select.value : '';
 
+        // [Validation] 예상 MBTI 미선택 시 경고 팝업
+        if (!this.expectedMbti) {
+            const customAlert = document.getElementById('custom-alert');
+            if (customAlert) {
+                customAlert.classList.add('active');
+            } else {
+                alert('본인이 생각하는 MBTI를 입력하고 시작해주세요!');
+            }
+            return;
+        }
+
         // 질문 랜덤화 (20개 중 10개 선택)
         this.activeQuestions = this.shuffleArray([...quizQuestions]).slice(0, 10);
 
@@ -345,16 +356,16 @@ class MBTIQuizApp {
 
         // 비추천 팀 렌더링 (확장된 구조)
         const notRecommendedContainer = document.getElementById('not-recommended-teams-list');
-        if (notRecommendedContainer && typeInfo.notRecommendedTeam) {
-            notRecommendedContainer.innerHTML = `
+        if (notRecommendedContainer && typeInfo.notRecommendedTeams) {
+            notRecommendedContainer.innerHTML = typeInfo.notRecommendedTeams.map((team, idx) => `
                 <div class="team-item">
                     <div class="team-item-header">
-                        <span class="team-item-name">${typeInfo.notRecommendedTeam}</span>
-                        <span class="team-item-badge">주의</span>
+                        <span class="team-item-name">${team.name}</span>
+                        <span class="team-item-badge">주의 ${idx + 1}</span>
                     </div>
-                    <p class="team-item-reason">${typeInfo.notTeamReason}</p>
+                    <p class="team-item-reason">${team.reason}</p>
                 </div>
-            `;
+            `).join('');
         }
 
         // 동료 위로 메시지

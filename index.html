@@ -303,7 +303,7 @@
 
                     <!-- 비추천 팀 -->
                     <div class="team-section not-recommended">
-                        <h3 class="section-title">⚠️ 주의가 필요한 팀</h3>
+                        <h3 class="section-title">⚠️ 주의가 필요한 팀 TOP 5</h3>
                         <div class="team-list" id="not-recommended-teams-list">
                             <!-- Dynamically inserted: team-item cards (caution style) -->
                         </div>
@@ -344,6 +344,21 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- 커스텀 알림 모달 -->
+    <div id="custom-alert" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-icon">⚠️</span>
+                <h3 class="modal-title">알림</h3>
+            </div>
+            <p class="modal-body" id="modal-message">본인이 생각하는 MBTI를 입력하고 시작해주세요!</p>
+            <button class="btn btn-primary modal-btn"
+                onclick="document.getElementById('custom-alert').classList.remove('active')">
+                확인
+            </button>
+        </div>
     </div>
 
     <!-- Scripts -->

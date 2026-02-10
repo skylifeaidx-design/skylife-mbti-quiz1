@@ -225,8 +225,13 @@ const mbtiTypes = {
             { name: "데이터분석팀", reason: "빅데이터 기반 고객 행동 패턴 분석 및 인사이트 도출 (표준업무: 데이터분석)" },
             { name: "재무관리팀", reason: "정교한 수치 기반의 손익 관리 및 경영 리스크 분석 (표준업무: 재무분석)" }
         ],
-        notRecommendedTeam: "고객센터혁신팀 / 대외협력팀",
-        notTeamReason: "감정 소모가 큰 고객 응대와 잦은 대인 관계 업무가 부담될 수 있음",
+        notRecommendedTeams: [
+            { name: "고객센터혁신팀", reason: "감정 소모가 큰 고객 응대 업무가 정서적으로 부담될 수 있음" },
+            { name: "대외협력팀", reason: "잦은 대인 관계 업무와 외부 미팅이 에너지 소모를 일으킴" },
+            { name: "영업현장팀", reason: "즉흥적인 상황 대처와 공격적인 목표 달성 압박이 스트레스 요인" },
+            { name: "현장지원팀", reason: "비체계적인 현장 변수 처리가 논리적 사고 방식과 충돌할 수 있음" },
+            { name: "사내방송팀", reason: "감성적인 연출과 즉흥적인 현장 반응 위주의 업무가 어색할 수 있음" }
+        ],
         colleagueMessage: "\"당신의 전략적 사고는 팀에 없어서는 안 될 자산이에요. 가끔은 완벽하지 않아도 괜찮으니, 쉬어가면서 해요. 우리가 곁에 있잖아요.\"",
         representatives: [
             { name: "지드래곤", title: "가수/프로듀서", image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/G-Dragon_at_G-Dragon_World_Tour_in_Singapore%2C_2013-06-29_02.jpg" },
@@ -272,8 +277,13 @@ const mbtiTypes = {
             { name: "보안운영팀", reason: "논리적 취약점 분석 및 전사 보안 시스템 고도화 (표준업무: 정보보안)" },
             { name: "서비스품질관리팀", reason: "데이터 기반 서비스 오류 패턴 분석 및 근본 원인 해결 (표준업무: 품질관리)" }
         ],
-        notRecommendedTeam: "인사팀 / 총무팀",
-        notTeamReason: "반복적인 루틴과 꼼꼼한 규정 관리가 답답하게 느껴질 수 있음",
+        notRecommendedTeams: [
+            { name: "인사팀", reason: "반복적인 행정 루틴과 복잡한 규정 관리가 답답하게 느껴질 수 있음" },
+            { name: "총무팀", reason: "사소한 실무 지원과 잦은 민원 처리가 창의적 사고를 저해함" },
+            { name: "영업채널관리팀", reason: "감정적인 공감과 비즈니스 매너 유지가 에너지 소모를 일으킴" },
+            { name: "고객만족도조사팀", reason: "정형화된 설문 기반의 데이터 수집 업무가 단순하게 느껴짐" },
+            { name: "시설관리팀", reason: "실무적인 현장 점검과 반복적인 안전 관리가 지루할 수 있음" }
+        ],
         colleagueMessage: "\"당신의 천재적인 아이디어는 우리 팀을 항상 깨어 있게 해요. 혼자 고민하지 말고 가끔은 우리와 나눠봐요. 함께라면 더 멋진 결과가 나올 거예요.\"",
         representatives: [
             { name: "BTS 진", title: "가수", image: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Kim_Seok-jin_at_The_Fact_Music_Awards_on_April_24%2C_2019.jpg" },
@@ -319,8 +329,13 @@ const mbtiTypes = {
             { name: "경영개선실", reason: "전사 조직 운영 효율화 및 프로세스 혁신 주도 (표준업무: 경영혁신)" },
             { name: "무선사업팀", reason: "MVNO 시장 점유율 확대를 위한 공격적 마케팅 전략 실행 (표준업무: 가입자유치)" }
         ],
-        notRecommendedTeam: "운영지원팀 / 고객지원팀",
-        notTeamReason: "정적인 운영 업무나 감성적인 지원 업무에 지루함을 느낄 수 있음",
+        notRecommendedTeams: [
+            { name: "운영지원팀", reason: "정적인 운영 업무와 반복적인 루틴이 열정을 낮출 수 있음" },
+            { name: "고객지원팀", reason: "감성적인 지원 업무와 반복되는 불만 응대가 답답할 수 있음" },
+            { name: "준법감시팀", reason: "엄격한 법적 잣대와 보수적인 검토 과정이 추진력을 방해함" },
+            { name: "사내도서관팀", reason: "매우 정적이고 조용한 환경이 활동적인 성향과 맞지 않음" },
+            { name: "단말정산팀", reason: "세밀한 숫자 오차를 잡는 정산 업무가 지루하게 느껴질 수 있음" }
+        ],
         colleagueMessage: "\"당신의 리더십은 우리를 항상 바른 방향으로 이끌어줘요. 가끔은 우리 뒤를 보며 조금 천천히 걸어도 괜찮아요. 우리는 당신을 믿고 따라갈게요.\"",
         representatives: [
             { name: "스티브 잡스", title: "애플 창업자", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Steve_Jobs_Headshot_2010-edit.jpg" },
@@ -366,8 +381,13 @@ const mbtiTypes = {
             { name: "브랜드혁신TF", reason: "기업 브랜드 이미지 쇄신을 위한 실험적인 캠페인 추진 (표준업무: 브랜드매니지먼트)" },
             { name: "플랫폼사업진흥팀", reason: "새로운 가입자 유치 모델 발굴 및 제휴 채널 다각화 (표준업무: 채널사업)" }
         ],
-        notRecommendedTeam: "법무팀 / 세무팀",
-        notTeamReason: "경직된 법률 검토와 세무 절차 준수가 답답할 수 있음",
+        notRecommendedTeams: [
+            { name: "법무팀", reason: "경직된 법률 검토와 보수적인 판단 과정이 자유로운 발상을 방해함" },
+            { name: "세무팀", reason: "엄격한 세무 절차 준수와 세밀한 규정 적용이 답답할 수 있음" },
+            { name: "개인정보보호팀", reason: "보수적인 가이드라인 준수가 혁신적인 서비스 기획과 충돌함" },
+            { name: "방송정책팀", reason: "복잡한 정부 규제 검토 업무가 임기응변 능력을 가둘 수 있음" },
+            { name: "위성이전지원팀", reason: "반복적인 이전 절차 확인과 데이터 검증이 지루할 수 있음" }
+        ],
         colleagueMessage: "\"당신의 거침없는 아이디어는 우리 팀의 사이다예요! 가끔은 열띤 토론 후에 우리와 함께 커피 한잔해요. 당신의 에너지가 우리에겐 꼭 필요하거든요.\"",
         representatives: [
             { name: "지코", title: "가수/프로듀서", image: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Zico_at_the_KBS_Song_Festival%2C_2015-12-30.jpg" },
@@ -414,8 +434,13 @@ const mbtiTypes = {
             { name: "인재육성팀", reason: "구성원들의 성장과 심리적 안정을 돕는 교육 프로그램 기획 (표준업무: HRD)" },
             { name: "콘텐츠심의팀", reason: "방송 콘텐츠의 가치 기준 준수 여부 및 공익성 검토 (표준업무: 정책심의)" }
         ],
-        notRecommendedTeam: "구매팀 / 물류센터",
-        notTeamReason: "수치와 효율 중심의 냉정한 협상이 정서적으로 힘들 수 있음",
+        notRecommendedTeams: [
+            { name: "구매팀", reason: "수치와 효율 중심의 냉정한 협상이 정서적으로 힘들 수 있음" },
+            { name: "물류센터", reason: "빠른 재고 회전과 거친 현장 환경이 내성적인 성향과 맞지 않음" },
+            { name: "영업추진본부", reason: "공격적인 실적 압박과 경쟁적인 분위기가 큰 부담이 됨" },
+            { name: "기술영업팀", reason: "기술적 스펙 기반의 딱딱한 제안 업무가 창의력을 제한함" },
+            { name: "채권관리팀", reason: "독촉과 협상 등 갈등 상황이 빈번한 업무가 심리적으로 힘듦" }
+        ],
         colleagueMessage: "\"당신의 따뜻한 말 한마디는 우리 팀의 안식처예요. 남들을 챙기는 만큼 자신도 꼭 돌봐주세요. 당신이 행복해야 우리 팀도 행복하니까요.\"",
         representatives: [
             { name: "신세경", title: "배우", image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Shin_Se-kyung_at_%22The_Bride_of_Habaek%22_showcase%2C_June_2017._02.jpg" },
@@ -461,8 +486,13 @@ const mbtiTypes = {
             { name: "조직문화팀", reason: "직원들의 유대감을 높이는 사내 이벤트 및 힐링 공간 기획 (표준업무: 기업문화)" },
             { name: "사용자경험팀", reason: "심층 면접 기반의 고객 페르소나 정의 및 니즈 분석 (표준업무: UX리서치)" }
         ],
-        notRecommendedTeam: "재무팀 / 감사실",
-        notTeamReason: "딱딱한 수치 관리와 엄격한 규정 적용이 맞지 않을 수 있음",
+        notRecommendedTeams: [
+            { name: "재무팀", reason: "딱딱한 수치 관리와 엄격한 결산 마감이 심리적 압박을 줄 수 있음" },
+            { name: "감사실", reason: "엄격한 규정 적용과 타인을 조사하는 업무가 가치관과 충돌함" },
+            { name: "정보전략팀", reason: "객관적인 데이터와 효율 중심의 사고가 감성적 성향과 맞지 않음" },
+            { name: "단말물류팀", reason: "정해진 규칙대로만 움직이는 물류 프로세스가 답답할 수 있음" },
+            { name: "전산팀", reason: "논리적 인과관계가 확실한 코딩 업무보다 감성적 기획을 원함" }
+        ],
         colleagueMessage: "\"당신의 독창적인 생각은 우리 팀의 보물이에요. 가끔 세상이 너무 차갑게 느껴져도 우리가 당신을 지켜줄게요. 당신의 따뜻한 꿈을 계속 응원해요.\"",
         representatives: [
             { name: "아이유", title: "가수/배우", image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/IU_at_%22Broker%22_VIP_Premiere%2C_2_June_2022.jpg" },
@@ -508,8 +538,13 @@ const mbtiTypes = {
             { name: "고객만족팀", reason: "고객 접점 서비스 마인드 교육 및 고객 경험 개선 캠페인 (표준업무: CS기획)" },
             { name: "사업파트너협력팀", reason: "대외 파트너사와의 유대 강화 및 원활한 협업 관계 구축 (표준업무: 파트너십)" }
         ],
-        notRecommendedTeam: "정보보안팀 / 인프라관리팀",
-        notTeamReason: "기계적인 보안 관리와 폐쇄적인 업무 환경이 답답할 수 있음",
+        notRecommendedTeams: [
+            { name: "정보보안팀", reason: "기계적인 보안 관리와 폐쇄적인 업무 환경이 답답할 수 있음" },
+            { name: "인프라관리팀", reason: "사람과의 소통보다 시스템 로그 분석 위주의 업무가 외롭게 느껴짐" },
+            { name: "회계팀", reason: "감성적인 교류가 배제된 차가운 수치 관리 업무가 지루함" },
+            { name: "위성관제소", reason: "고립된 환경에서의 반복적인 모니터링 업무가 성향과 맞지 않음" },
+            { name: "법무지원팀", reason: "원칙 기반의 보수적인 판단 업무가 변화를 추구하는 마음과 충돌함" }
+        ],
         colleagueMessage: "\"당신 덕분에 우리 팀이 하나로 뭉칠 수 있어요. 우리를 위해 애쓰는 것도 좋지만, 때로는 자신의 마음도 먼저 살펴봐 주세요. 당신의 웃음이 우리의 힘입니다!\"",
         representatives: [
             { name: "임영웅", title: "가수", image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Lim_Young-woong_in_2021.png" },
@@ -555,8 +590,13 @@ const mbtiTypes = {
             { name: "방송기획팀", reason: "새로운 예능/교양 프로그램 포맷 발굴 및 기획 참여 (표준업무: 방송기획기)" },
             { name: "가입자증대TF", reason: "톡톡 튀는 아이디어로 새로운 타겟층 공략 및 가입 유도 (표준업무: 프로모션)" }
         ],
-        notRecommendedTeam: "품질관리팀 / 정산팀",
-        notTeamReason: "꼼꼼한 검수업무와 반복되는 정산 작업이 업무 흥미를 떨어뜨림",
+        notRecommendedTeams: [
+            { name: "품질관리팀", reason: "꼼꼼한 검수 업무와 반복되는 디테일 확인이 에너지를 소진시킴" },
+            { name: "정산팀", reason: "반복적인 정산 작업과 작은 오차도 허용 않는 압박이 지루함" },
+            { name: "방송심의팀", reason: "창의적인 아이디어를 규정에 맞춰 검열하는 일이 괴로울 수 있음" },
+            { name: "데이터센터", reason: "정형화된 데이터 관리 환경이 자유로운 사고를 제한함" },
+            { name: "자산운용팀", reason: "보수적이고 꼼꼼한 자산 관리가 즉흥적인 성향과 충돌함" }
+        ],
         colleagueMessage: "\"당신과 함께 있으면 업무 시간이 순식간에 지나가요! 당신의 밝은 에너지가 우리 팀의 비타민입니다. 가끔은 실수를 해도 괜찮아요, 우리가 있잖아요!\"",
         representatives: [
             { name: "이효리", title: "가수/방송인", image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Lee_Hyo-ri_at_%22Soul_Wonder%22_showcase%2C_July_2013._02.jpg" },
@@ -603,8 +643,13 @@ const mbtiTypes = {
             { name: "감사실", reason: "사내 규정 준수 여부 점검 및 원칙 기반의 리스크 예방 (표준업무: 내부감사)" },
             { name: "시설관리팀", reason: "매뉴얼 기반의 안전한 시설 운영 및 정기 점검 업무 (표준업무: 관재)" }
         ],
-        notRecommendedTeam: "브랜드혁신TF / 미디어UX팀",
-        notTeamReason: "빈번한 변화와 창의적 실험이 요구되는 환경이 불편할 수 있음",
+        notRecommendedTeams: [
+            { name: "브랜드혁신TF", reason: "빈번한 변화와 창의적 실험이 요구되는 불확실성이 불편함" },
+            { name: "미디어UX팀", reason: "감성적이고 주관적인 판단이 필요한 업무가 비논리적으로 느껴짐" },
+            { name: "SNS마케팅팀", reason: "유행을 따르는 즉흥적이고 감각적인 업무가 체계적이지 않음" },
+            { name: "신사업발굴팀", reason: "검증되지 않은 위험한 도전이 원칙 중심 사고와 상충함" },
+            { name: "사내행사기획팀", reason: "감성을 자극하는 연출 중심의 업무가 비효율적으로 느껴질 수 있음" }
+        ],
         colleagueMessage: "\"당신이 있어서 우리 팀이 안정적으로 굴러가요. 묵묵히 해주는 모든 일, 다 보고 있어요. 정말 고마워요.\"",
         representatives: [
             { name: "민지(뉴진스)", title: "가수", image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/NewJeans_Minji_at_the_KBS_Song_Festival%2C_2022-12-16.jpg" },
@@ -650,8 +695,13 @@ const mbtiTypes = {
             { name: "총무팀", reason: "전사 자산 관리 및 원활한 사무 환경 조성을 위한 세심한 서포트 (표준업무: 자산관리)" },
             { name: "비서실", reason: "경영진의 일정을 세심하게 관리하고 조용히 내조하는 역할 (표준업무: 수행비서)" }
         ],
-        notRecommendedTeam: "영업총괄 / 브랜드혁신TF",
-        notTeamReason: "공격적 목표와 빠른 변화에 대한 압박이 스트레스가 될 수 있음",
+        notRecommendedTeams: [
+            { name: "영업총괄", reason: "공격적인 실적 목표와 무한 경쟁 분위기가 큰 스트레스가 됨" },
+            { name: "브랜드혁신TF", reason: "매일 바뀌는 빠른 변화와 불확실한 미래 대응이 심리적으로 힘듦" },
+            { name: "기술마케팅팀", reason: "논리적 근거로 상대를 압박하는 업무 상황이 부담스러움" },
+            { name: "전사위기대응팀", reason: "긴박한 위기 상황과 갈등 해결 업무가 에너지를 소진시킴" },
+            { name: "구매협상팀", reason: "상대와 기싸움을 벌여야 하는 환경이 성향과 맞지 않음" }
+        ],
         colleagueMessage: "\"당신이 조용히 챙겨주는 것들, 다 느끼고 있어요. 이번엔 당신이 챙김을 받을 차례예요. 우리가 곁에 있을게요.\"",
         representatives: [
             { name: "박보영", title: "배우", image: "https://upload.wikimedia.org/wikipedia/commons/1/18/Park_Bo-young_at_%22On_Your_Wedding_Day%22_showcase_%28cropped%29.jpg" },
@@ -697,8 +747,13 @@ const mbtiTypes = {
             { name: "물류센터", reason: "셋톱박스 및 기자재 수급 관리 및 재고 회전 효율화 (표준업무: 물류운영)" },
             { name: "품질관리팀", reason: "엄격한 서비스 품질 기준 수립 및 장애 예방 프로세스 확립 (표준업무: 품질관리)" }
         ],
-        notRecommendedTeam: "미디어UX팀 / 홍보CSR팀",
-        notTeamReason: "창의적이고 감성적인 접근이 필요한 업무가 어려울 수 있음",
+        notRecommendedTeams: [
+            { name: "미디어UX팀", reason: "창의적이고 감성적인 접근 방식이 비효율적으로 느껴질 수 있음" },
+            { name: "홍보CSR팀", reason: "모호한 감성적 가치 창출 업무가 논리적 성향과 맞지 않음" },
+            { name: "사내심리상담실", reason: "타인의 감정에 깊이 공감해야 하는 업무가 피로감을 줌" },
+            { name: "콘텐츠연구소", reason: "정답이 없는 예술적 가치 판단 업무가 추진력을 방해함" },
+            { name: "디자인혁신TF", reason: "객관적 수치보다 주관적 느낌을 중시하는 환경이 불편함" }
+        ],
         colleagueMessage: "\"당신의 추진력 덕분에 우리가 목표를 달성할 수 있어요. 가끔은 속도를 늦춰도 괜찮아요. 우리가 함께 가고 있으니까요.\"",
         representatives: [
             { name: "김구라", title: "방송인", image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Kim_Gura.png" },
@@ -744,8 +799,13 @@ const mbtiTypes = {
             { name: "총무복지팀", reason: "임직원 만족도 향상을 위한 다양한 사내 복지 프로그램 운영 (표준업무: 복리후생지원)" },
             { name: "영업채널관리팀", reason: "대리점주 및 외부 채널들과의 유대 강화 및 애로사항 해결 (표준업무: 파트너사업)" }
         ],
-        notRecommendedTeam: "기술전략팀 / 미래전략TF",
-        notTeamReason: "독립적이고 추상적인 전략 업무보다 사람과 함께하는 역할에 적합",
+        notRecommendedTeams: [
+            { name: "기술전략팀", reason: "독립적이고 추상적인 기술 전략 업무보다 사람과 함께하는 일이 좋음" },
+            { name: "미래전략TF", reason: "현실의 관계보다 먼 미래의 불확실한 목표에 집중하는 게 적성에 안 맞음" },
+            { name: "시스템개발팀", reason: "하루 종일 코드와 씨름하는 정적인 환경이 외롭게 느껴짐" },
+            { name: "정보보안운영팀", reason: "원칙 준수를 위해 타인을 감시/통제해야 하는 업무가 힘듦" },
+            { name: "위성기술연구실", reason: "고도의 전문성이 필요하고 사람과의 교류가 적은 환경이 답답함" }
+        ],
         colleagueMessage: "\"당신이 챙겨줘서 우리 팀이 따뜻해요. 이젠 당신도 쉬어도 돼요. 우리가 당신을 챙길게요.\"",
         representatives: [
             { name: "테일러 스위프트", title: "가수", image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_01.jpg" },
@@ -792,8 +852,13 @@ const mbtiTypes = {
             { name: "보안기술팀", reason: "실제적인 보안 취약점 점검 및 보안 솔루션 운영 (표준업무: 보안기술)" },
             { name: "미디어운용센터", reason: "방송 송출 장비 관리 및 실시간 기술 모니터링 (표준업무: 송출기술)" }
         ],
-        notRecommendedTeam: "인사팀 / 홍보CSR팀",
-        notTeamReason: "감정적 교류와 사회적 활동이 많은 업무가 불편할 수 있음",
+        notRecommendedTeams: [
+            { name: "인사팀", reason: "감정적 교류와 사회적 활동이 많은 업무가 큰 에너지 소모를 일으킴" },
+            { name: "홍보CSR팀", reason: "감성을 자극하는 캠페인 기획 업무가 성향과 맞지 않음" },
+            { name: "고객행복팀", reason: "불만 고객을 다독이고 공감해야 하는 업무가 논리적 사고와 충돌함" },
+            { name: "사내방송팀", reason: "많은 사람 앞에 노출되고 리액션이 필요한 업무가 부담스러움" },
+            { name: "기업문화혁신TF", reason: "조직의 화합과 문화를 위해 끊임없이 소통해야 하는 일이 피곤함" }
+        ],
         colleagueMessage: "\"문제가 생기면 당신이 있어서 든든해요. 말수가 적어도 당신의 실력은 다 알아요. 고마워요.\"",
         representatives: [
             { name: "김연아", title: "피겨스케이팅 선수", image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Kim_Yuna_at_the_PyeongChang_2018_Welcome_Ceremony.jpg" },
@@ -839,8 +904,13 @@ const mbtiTypes = {
             { name: "영업지원팀", reason: "대리점 및 파트너사 현장에 필요한 실용적인 업무 서포트 (표준업무: 대리점지원)" },
             { name: "디자인실", reason: "차분하고 조화로운 톤앤매너의 홍보물 및 콘텐츠 제작 (표준업무: 디자인지원)" }
         ],
-        notRecommendedTeam: "경영기획총괄 / 영업기획팀",
-        notTeamReason: "공격적 목표와 경쟁적 환경이 에너지를 소진시킬 수 있음",
+        notRecommendedTeams: [
+            { name: "경영기획총괄", reason: "공격적인 전사 목표 수립과 무거운 책임감이 심리적 압박을 줌" },
+            { name: "영업기획팀", reason: "실적 데이터 경쟁과 공격적인 추진력이 필요한 환경이 힘듦" },
+            { name: "재무감사팀", reason: "타인을 비판적으로 조사하고 규정을 강요하는 업무가 괴로움" },
+            { name: "기술관리본부", reason: "경직된 상하 질서와 체계적인 절차 준수가 자유로운 영혼을 억압함" },
+            { name: "법무윤리실", reason: "원칙과 법적 근거로 상대를 압박하는 업무 상황이 큰 부담" }
+        ],
         colleagueMessage: "\"당신이 있으면 마음이 편해져요. 조용히 팀을 지켜주는 당신, 정말 소중해요. 자신을 더 믿어도 돼요.\"",
         representatives: [
             { name: "정국(BTS)", title: "가수", image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Jungkook_at_the_2019_The_Fact_Music_Awards.jpg" },
@@ -886,8 +956,13 @@ const mbtiTypes = {
             { name: "방송프로모션팀", reason: "대규모 시청자 참여 행사 기획 및 현장 운영 총괄 (표준업무: 프로모션)" },
             { name: "유통망관리팀", reason: "전국 대리점 현장 방문 점검 및 영업 활력 제고 (표준업무: 유통망지원)" }
         ],
-        notRecommendedTeam: "전략기획실 / 기술전략팀",
-        notTeamReason: "장기적 전략 수립과 추상적 분석 업무가 지루할 수 있음",
+        notRecommendedTeams: [
+            { name: "전략기획실", reason: "장기적인 전략 수립과 따분한 책상 위 분석 업무가 지루함" },
+            { name: "기술전략팀", reason: "추상적인 이론을 다루는 기술 정책 논의가 현실감이 떨어짐" },
+            { name: "기록관리팀", reason: "꼼꼼하게 서류를 관리하고 보관하는 정적인 작업이 답답함" },
+            { name: "준법지원실", reason: "행동보다 말과 법률로 문제를 해결하는 과정이 성미에 안 맞음" },
+            { name: "시스템유지보수팀", reason: "한자리에서 계속 문제를 기다리는 수동적인 환경이 지루함" }
+        ],
         colleagueMessage: "\"당신의 행동력이 팀을 움직여요! 가끔 속도를 늦춰도 괜찮아요. 우리가 옆에서 함께 달릴게요.\"",
         representatives: [
             { name: "강호동", title: "방송인", image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Kang_Ho-dong.png" },
@@ -933,8 +1008,13 @@ const mbtiTypes = {
             { name: "사내행사기획팀", reason: "임직원 사기 진작을 위한 다큐멘터리/행사 기획 및 진행 (표준업무: 사내문화)" },
             { name: "고객참여프로그램팀", reason: "시청자 대상 견학 및 체험 프로그램 운영/가이드 (표준업무: 체험마케팅)" }
         ],
-        notRecommendedTeam: "회계팀 / IT운영팀",
-        notTeamReason: "반복적이고 독립적인 업무 환경이 답답할 수 있음",
+        notRecommendedTeams: [
+            { name: "회계팀", reason: "반복적이고 독립적인 업무 환경이 에너지를 빠르게 소진시킴" },
+            { name: "IT운영팀", reason: "차가운 데이터와 텍스트 위주의 업무가 즐거움을 주지 못함" },
+            { name: "경영분석팀", reason: "긴 호흡의 통계 분석과 보고서 작성 업무가 즉흥적 성향과 충돌함" },
+            { name: "방송망보안팀", reason: "매우 보수적이고 규칙 준수가 생명인 환경이 억압적으로 느껴짐" },
+            { name: "자재수급팀", reason: "사람과의 만남보다 엑셀 파일과 물건 수량 확인에 치이는 일이 지겨움" }
+        ],
         colleagueMessage: "\"당신 덕분에 회사 오는 게 즐거워요! 그 밝은 에너지, 잃지 마세요. 우리 팀의 햇살이니까요.\"",
         representatives: [
             { name: "비(Rain)", title: "가수/배우", image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Rain_%28singer%29_in_2015.png" },
