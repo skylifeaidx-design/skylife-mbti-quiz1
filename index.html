@@ -42,6 +42,54 @@
     <div class="app-container">
         <!-- ========== 인트로 화면 ========== -->
         <section id="intro-screen" class="screen active">
+            <!-- 메인 스와이프 배너 -->
+            <div class="main-banner-section">
+                <div class="banner-slider" id="banner-slider">
+                    <div class="banner-item banner-1">
+                        <div class="banner-content">
+                            <span class="banner-tag">ipit TV</span>
+                            <h3>믿을 수 있는 가성비 IPTV</h3>
+                            <p>스카이라이프에서 풍성하게 즐기세요</p>
+                        </div>
+                    </div>
+                    <div class="banner-item banner-2">
+                        <div class="banner-content">
+                            <span class="banner-tag">Mobile</span>
+                            <h3>데이터 무제한 실속 요금제</h3>
+                            <p>품질은 그대로, 가격은 반값으로!</p>
+                        </div>
+                    </div>
+                    <div class="banner-item banner-3">
+                        <div class="banner-content">
+                            <span class="banner-tag">Internet</span>
+                            <h3>초고속 인터넷 + TV 결합</h3>
+                            <p>결합하면 할인이 더 커집니다</p>
+                        </div>
+                    </div>
+                    <div class="banner-item banner-4">
+                        <div class="banner-content">
+                            <span class="banner-tag">Event</span>
+                            <h3>지니 TV 모바일 앱</h3>
+                            <p>언제 어디서나 이어보세요</p>
+                        </div>
+                    </div>
+                    <div class="banner-item banner-5">
+                        <div class="banner-content">
+                            <span class="banner-tag">AI 포착</span>
+                            <h3>AI가 포착하는 생생한 스포츠</h3>
+                            <p>내 손안의 경기 중계 솔루션</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-dots" id="banner-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
             <div class="card intro-card">
                 <div class="logo-container">
                     <svg class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
@@ -78,6 +126,12 @@
         <section id="quiz-screen" class="screen">
             <div class="card quiz-card">
                 <div class="progress-container">
+                    <button id="back-btn" class="back-btn" title="이전 질문으로">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
                     <div class="progress-text">
                         <span class="progress-number" id="question-number">1 / 10</span>
                         <span class="progress-label">질문</span>

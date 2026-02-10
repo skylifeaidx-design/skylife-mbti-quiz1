@@ -23,6 +23,9 @@ class MBTIQuizApp {
 
         // 이벤트 바인딩
         this.bindEvents();
+
+        // 배너 초기화
+        this.initBanner();
     }
 
     bindEvents() {
@@ -39,6 +42,11 @@ class MBTIQuizApp {
         // 공유하기 버튼
         document.getElementById('share-btn').addEventListener('click', () => {
             this.shareResult();
+        });
+
+        // 뒤로가기 버튼
+        document.getElementById('back-btn').addEventListener('click', () => {
+            this.goBack();
         });
     }
 
@@ -74,6 +82,14 @@ class MBTIQuizApp {
         // 진행 상태 업데이트
         document.getElementById('question-number').textContent = `${questionNum} / ${totalQuestions}`;
         document.getElementById('progress-fill').style.width = `${(questionNum / totalQuestions) * 100}%`;
+
+        // 뒤로가기 버튼 상태 제어
+        const backBtn = document.getElementById('back-btn');
+        if (this.currentQuestion === 0) {
+            backBtn.disabled = true;
+        } else {
+            backBtn.disabled = false;
+        }
 
         // 질문 표시
         const emojis = ['💼', '🗣️', '💡', '📊', '🤝', '⚖️', '⏰', '✈️', '🎉', '🌙'];
@@ -126,6 +142,24 @@ class MBTIQuizApp {
         } else {
             // 분석 화면으로 이동
             this.showAnalyzing();
+        }
+    }
+
+    goBack() {
+        if (this.currentQuestion > 0) {
+            // 이전 답변 제거
+            const lastAnswer = this.answers.pop();
+
+            // 점수 차감
+            if (lastAnswer) {
+                this.scores[lastAnswer.value]--;
+            }
+
+            // 질문 인덱스 감소
+            this.currentQuestion--;
+
+            // 질문 다시 표시
+            this.displayQuestion();
         }
     }
 
@@ -296,10 +330,39 @@ class MBTIQuizApp {
         this.resetScores();
 
         // 분석 화면 초기화
-        document.getElementById('circle-progress').style.strokeDashoffset = '565.48';
-        document.getElementById('progress-percentage').textContent = '0%';
+        const circleProgress = document.getElementById('circle-progress');
+        if (circleProgress) circleProgress.style.strokeDashoffset = '565.48';
+        const percentageEl = document.getElementById('progress-percentage');
+        if (percentageEl) percentageEl.textContent = '0%';
 
         this.showScreen('intro');
+    }
+
+    // ========== 배너 로직 ==========
+    initBanner() {
+        const slider = document.getElementById('banner-slider');
+        const dots = document.querySelectorAll('#banner-dots .dot');
+        let currentIndex = 0;
+        const bannerCount = 5;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % bannerCount;
+            this.updateBanner(slider, dots, currentIndex);
+        }, 4000); // 4초마다 전환
+    }
+
+    updateBanner(slider, dots, index) {
+        if (!slider || !dots) return;
+
+        slider.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
     }
 
     shareResult() {

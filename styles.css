@@ -358,15 +358,155 @@ body {
     padding: 32px 24px;
 }
 
+/* ========================================
+   Main Banner Section (Intro)
+======================================== */
+.main-banner-section {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 20px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.banner-slider {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 160px;
+}
+
+.banner-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: white;
+}
+
+.banner-content {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.banner-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.banner-content h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.banner-content p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Banner Gradients */
+.banner-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.banner-2 {
+    background: linear-gradient(135deg, #00c753 0%, #00a544 100%);
+}
+
+.banner-3 {
+    background: linear-gradient(135deg, #00b8d4 0%, #00838f 100%);
+}
+
+.banner-4 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.banner-5 {
+    background: linear-gradient(135deg, #262e33 0%, #00c753 100%);
+}
+
+.banner-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: white;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* ========================================
+   Back Button (Quiz)
+======================================== */
 .progress-container {
-    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.back-btn:hover {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(-2px);
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+}
+
+.back-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    filter: grayscale(1);
+    pointer-events: none;
 }
 
 .progress-text {
+    flex-grow: 1;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+    align-items: baseline;
+    margin-bottom: 8px;
 }
 
 .progress-number {
